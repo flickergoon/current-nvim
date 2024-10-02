@@ -1,15 +1,19 @@
 local map = vim.keymap.set
 
 --mini stuff
-map("n", "<leader>o", "<cmd>Pick grep_live<CR>", { silent = true })
-map("n", "<leader>bb", "<cmd>Pick buffers<CR>", { silent = true })
-map("n", "<leader>df", "<cmd>Pick files<CR>", { silent = true })
-map("n", "<leader>ht", "<cmd>Pick help<CR>", { silent = true })
+map("n", "<leader>o", "<cmd>Pick grep_live<CR>", { silent = true, desc = "Grep Live" })
+map("n", "<leader>bb", "<cmd>Pick buffers<CR>", { silent = true , desc ="Buffer Buffers"})
+map("n", "<leader>ff", "<cmd>Pick files<CR>", { silent = true , desc = "Find Files"})
+map("n", "<leader>ht", "<cmd>Pick help<CR>", { silent = true , desc = "Help Tags" })
+map("n", "<leader>gb", "<cmd>Pick git_branches <CR>", { silent = true , desc = "Help Tags" })
+map("n", "<leader>gc", "<cmd>Pick git_commits<CR>", { silent = true , desc = "Help Tags" })
+map("n", "<leader>gf", "<cmd>Pick git_files<CR>", { silent = true , desc = "Help Tags" })
 
 
-map("n", "J", ":m '>+1<CR>gv=gv")
+map("v", "J", ":m '>+1<CR>gv=gv") --normal vim stuff
 map("v", "K", ":m '>-2<CR>gv=gv", { silent = true })
 map("n", "<C-d>", "zz")
+map("n", "<C-f>", ":<C-f>")
 
 
 map("n", "<leader>ex", "<cmd>Ex<CR>", { silent = true })
@@ -18,3 +22,17 @@ map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP Diagnostic locli
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = 0 })
+
+--menu
+-- Keyboard users
+vim.keymap.set("n", "<C-t>", function()
+  require("menu").open("default")
+end, {})
+
+-- mouse users + nvimtree users!
+vim.keymap.set("n", "<RightMouse>", function()
+  vim.cmd.exec '"normal! \\<RightMouse>"'
+
+  local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
+  require("menu").open(options, { mouse = true })
+end, {})

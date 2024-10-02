@@ -22,6 +22,7 @@ return {
   {
     "NvChad/volt",
   },
+  { "nvchad/menu" , lazy = true },
   {
     "neovim/nvim-lspconfig",
     event = "User FilePost",
@@ -73,10 +74,12 @@ return {
     event = { "BufReadPost", "BufNewFile" },
   },
   {
-    "hrsh7th/nvim-cmp",
+    "yioneko/nvim-cmp",
     event = "InsertEnter",
+    branch = "perf-up",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
+      "ray-x/cmp-treesitter",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
@@ -127,7 +130,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local toggle_opts = {
-        ui_width_ratio = 0.24,
+        ui_width_ratio = 0.35,
         border = "single",
         title_pos = "center",
       }

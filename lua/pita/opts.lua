@@ -35,7 +35,7 @@ o.termguicolors = true
 o.cursorline = false
 o.cursorlineopt = "number"
 o.pumblend  = 10
-o.pumheight = 15
+o.pumheight = 18
 o.winblend  = 10
 
 
@@ -70,6 +70,8 @@ if g.neovide then
 end
 
 --idont remember what this dose
+--i remember
+--if i am in windows it sets mason to path
 local is_windows = vim.fn.has("win32") ~= 0
 local sep = is_windows and "\\" or "/"
 local delim = is_windows and ";" or ":"

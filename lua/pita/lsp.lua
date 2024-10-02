@@ -67,3 +67,4 @@ lspconfig.lua_ls.setup({
   root_dir =  vim.fs.dirname(vim.fs.find({ ".luarc.json", ".git" }, { upward = true })[1])
 })
 lspconfig.clangd.setup({})
+lspconfig.csharp_ls.setup({})

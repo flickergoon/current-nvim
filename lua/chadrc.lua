@@ -4,7 +4,7 @@ M.base46 = {
 	theme = "gruvbox",
 	hl_override = {
 		DiagnosticUnnecessary = {
-			fg = "#ffffff",
+			fg = "#ffffff"
 		},
 		LspInlayHint = {
 			fg = "#ffffff",
