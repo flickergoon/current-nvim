@@ -29,6 +29,7 @@ opt.showmode = false
 
 
 --Os
+o.showtabline = 0
 o.expandtab = true
 o.termguicolors = true
 o.cursorline = false
