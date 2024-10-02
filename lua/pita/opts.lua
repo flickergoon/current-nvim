@@ -1,0 +1,75 @@
+local opt = vim.opt
+local o = vim.o
+local g = vim.g
+local s = vim.schedule
+
+s(function()
+  opt.clipboard = "unnamedplus"
+end)
+
+--Opts
+opt.breakindent = true
+opt.undofile = true
+opt.ignorecase = true
+opt.smartcase = true
+opt.signcolumn = "yes"
+opt.updatetime = 50
+opt.colorcolumn = "80"
+opt.timeoutlen = 300
+opt.splitright = true
+opt.splitbelow = true
+opt.scrolloff = 10
+opt.inccommand = "split"
+opt.whichwrap:append("<>[]hl")
+opt.hlsearch = false
+opt.incsearch = true
+opt.relativenumber = true
+opt.mouse = "a"
+opt.showmode = false
+
+
+--Os
+o.expandtab = true
+o.termguicolors = true
+o.cursorline = false
+o.cursorlineopt = "number"
+o.pumblend  = 10
+o.pumheight = 15
+o.winblend  = 10
+
+
+
+--Ss
+
+
+--Gs
+g.codeium_enabled = true
+g.have_nerd_font = false
+g.cursorword_enabled = false
+g.netrw_browse_split = 0
+g.netrw_banner = 0
+g.netrw_winsize = 25
+
+
+
+
+--too lazy to switch from vim.cmd
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set shiftwidth=2")
+
+--neovide
+
+if g.neovide then
+  g.neovide_padding_top = 0
+  g.neovide_padding_bottom = 0
+  g.neovide_padding_right = 0
+  g.neovide_padding_left = 0
+  g.neovide_confirm_quit = true
+end
+
+--idont remember what this dose
+local is_windows = vim.fn.has("win32") ~= 0
+local sep = is_windows and "\\" or "/"
+local delim = is_windows and ";" or ":"
+vim.env.PATH = table.concat({ vim.fn.stdpath("data"), "mason", "bin" }, sep) .. delim .. vim.env.PATH

@@ -1,0 +1,111 @@
+local M = {}
+
+M.base46 = {
+	theme = "gruvbox",
+	hl_override = {
+		DiagnosticUnnecessary = {
+			fg = "#ffffff",
+		},
+		LspInlayHint = {
+			fg = "#ffffff",
+		},
+		CmpGhostText = {
+			fg = "#ffffff",
+		},
+		TelescopeNormal = {
+			bg = "#292929",
+			fg = "white",
+		},
+		TelescopeBorder = {
+			fg = "white",
+			bg = "white",
+		},
+		TelescopePromptBorder = {
+			fg = "#292929",
+			bg = "white",
+		},
+		TelescopePromptNormal = {
+			fg = "#292929",
+			bold = true,
+			bg = "white",
+		},
+		TelescopePromptTitle = {
+			fg = "white",
+			bg = "#292929",
+		},
+		TelescopePreviewTitle = {
+			fg = "white",
+			bg = "#292929",
+		},
+		TelescopeResultsTitle = {
+			fg = "white",
+			bg = "#292929",
+		},
+		TelescopePromptPrefix = {
+			bg = "white",
+		},
+		TelescopePreviewBorder = {
+			fg = "#ffffff",
+		},
+		["@comment"] = { fg = "white", bold = true },
+
+		LineNr = { fg = "white" },
+
+		LspReferenceWrite = {
+			bg = "#282828",
+			fg = "#fabd3b",
+			underline = true,
+		},
+		LspReferenceText = {
+			bg = "#282828",
+			fg = "#fabd3b",
+			underline = true,
+		},
+		LspReferenceRead = {
+			bg = "#282828",
+			fg = "#fabd3b",
+			underline = true,
+		},
+		IlluminatedWordText = {
+			bg = "#282828",
+			fg = "#fabd3b",
+			underline = true,
+		},
+		IlluminatedWordRead = {
+			bg = "#282828",
+			fg = "#fabd3b",
+			underline = true,
+		},
+		IlluminatedWordWrite = {
+			bg = "#282828",
+			fg = "#fabd3b",
+			underline = true,
+		},
+	},
+
+	integrations = {
+		"blankline",
+		"cmp",
+		"git",
+		-- more
+	},
+}
+M.ui = {
+	lsp = { signature = true },
+	statusline = {
+		theme = "vscode",
+		separator_style = "default",
+		order = nil,
+		modules = nil,
+	},
+	telescope = {
+		enabled = true,
+		style = "borderless",
+	}, -- borderless / bordered
+	mason = { cmd = true, pkgs = {} },
+	tabufline = {
+		enabled = false,
+	},
+}
+
+return M
