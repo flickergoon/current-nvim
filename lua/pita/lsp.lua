@@ -1,7 +1,5 @@
 -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-local pick = require('mini.pick')
-
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
@@ -18,7 +16,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     require("clangd_extensions.inlay_hints").set_inlay_hints()
     map("gr", vim.lsp.buf.references, "[G]oto [D]efinition")
     map("gd", vim.lsp.buf.definition, "[G]oto [R]eferences")
-    map("<leader>fb", vim.lsp.buf.format(), "[F]ormat [B]uffer")
+    map("<leader>bf", vim.lsp.buf.format, "[F]ormat [B]uffer")
 
 
 
