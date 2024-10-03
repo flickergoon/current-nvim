@@ -19,7 +19,7 @@
   "nvim-treesitter-refactor": { "branch": "master", "commit": "d8b74fa87afc6a1e97b18da23e762efb032dc270" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "4a2d05ec24eaa6b655c7d19092a3b6c0219d46b9" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
-  "ui": { "branch": "v3.0", "commit": "a7d6059fe613ca2dab63867d83785637c26e831d" },
+  "ui": { "branch": "v3.0", "commit": "3cb30c847c3507d415c32d58a297f924b3fdb45c" },
   "vim-tmux-navigator": { "branch": "master", "commit": "a9b52e7d36114d40350099f254b5f299a35df978" },
   "volt": { "branch": "main", "commit": "ce1e55d52d86e33f340a20b45701b434cc684c15" },
   "zoxide.vim": { "branch": "master", "commit": "b1e70b6fc1682a83929aee63680d2b43456fe9a5" }

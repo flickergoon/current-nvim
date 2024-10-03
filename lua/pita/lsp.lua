@@ -16,15 +16,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     require("clangd_extensions.inlay_hints").setup_autocmd()
     require("clangd_extensions.inlay_hints").set_inlay_hints()
-    map("gr", vim.lsp.buf.references , "[G]oto [D]efinition" )
-    map("gd", vim.lsp.buf.definition ,"[G]oto [R]eferences")
+    map("gr", vim.lsp.buf.references, "[G]oto [D]efinition")
+    map("gd", vim.lsp.buf.definition, "[G]oto [R]eferences")
+    map("<leader>fb", vim.lsp.buf.format(), "[F]ormat [B]uffer")
+
+
 
     map("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
     map("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
     map("<leader>w", vim.lsp.buf.rename, "[R]e[n]ame")
     map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
     map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-    map("<leader>bf", vim.lsp.buf.hover, "lsp context menu")
 
     local client = vim.lsp.get_client_by_id(event.data.client_id)
     if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
@@ -61,12 +63,13 @@ local lspconfig = require("lspconfig")
 
 lspconfig.lua_ls.setup({
   diagnostics = { globals = { "vim", "bit", "jit", "utf8" } },
-  root_dir =  vim.fs.dirname(vim.fs.find({ ".luarc.json", ".git" }, { upward = true })[1]),
+  root_dir = vim.fs.dirname(vim.fs.find({ ".luarc.json", ".git" }, { upward = true })[1]),
   Lua = {
-    workspace = {checkThridParty = false},
-    telemtry = {enable = false},
-    hint = {enable = true},
+    workspace = { checkThridParty = false },
+    telemtry = { enable = false },
+    hint = { enable = true },
   }
 })
 lspconfig.clangd.setup({})
 lspconfig.csharp_ls.setup({})
+lspconfig.gopls.setup({})
