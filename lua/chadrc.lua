@@ -1,8 +1,11 @@
 local M = {}
 
 M.base46 = {
-  theme = "gruvbox",
+  theme = "solarized_dark",
   hl_override = {
+    Normal = {
+      bg = "NONE"
+    },
     DiagnosticUnnecessary = {
       fg = "#ffffff"
     },
@@ -93,11 +96,11 @@ M.base46 = {
 M.ui = {
   lsp = { signature = true },
   cmp = {
-    icons_left = false,   -- only for non-atom styles!
+    icons_left = false,  -- only for non-atom styles!
     lspkind_text = true,
-    style = "flat_dark",    -- default/flat_light/flat_dark/atom/atom_colored
+    style = "flat_dark", -- default/flat_light/flat_dark/atom/atom_colored
     format_colors = {
-      tailwind = false,   -- will work for css lsp too
+      tailwind = false,  -- will work for css lsp too
       icon = "󱓻",
     },
   },
@@ -120,3 +123,4 @@ M.ui = {
 }
 
 return M
+

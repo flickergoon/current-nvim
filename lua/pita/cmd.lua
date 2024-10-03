@@ -57,6 +57,10 @@ end, 100)
 vim.api.nvim_create_user_command("Sync", "Lazy sync", {
   desc = "Lazy [S]ync",
 })
+vim.api.nvim_create_user_command("Themes", "lua require('nvchad.themes').open()", {
+  desc = "Lazy [S]ync",
+})
+
 
 vim.api.nvim_create_user_command("LintInfo", function()
   local lint = require("lint")
@@ -114,5 +118,3 @@ vim.api.nvim_create_autocmd('FileType', {
     })
   end,
 })
-
-

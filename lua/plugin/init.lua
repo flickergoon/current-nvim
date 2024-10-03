@@ -236,9 +236,5 @@ return {
   },
   {
     --stuff i want to try but not sure if i want to keep
-    {
-      "nanotee/zoxide.vim",
-      event = "CmdLineEnter",
-    },
   }
 }
