@@ -1,15 +1,5 @@
 return {
   {
-    "Exafunction/codeium.vim",
-    lazy = false,
-    config = function()
-      vim.keymap.set("i", "<C-g>", function()return vim.fn["codeium#Accept"]()end, {expr = true, silent = true})
-      vim.keymap.set("i", "<c-;>", function()return vim.fn["codeium#CycleCompletions"](1)end, { expr = true, silent = true })
-      vim.keymap.set("i", "<c-,>", function()return vim.fn["codeium#CycleCompletions"]( -1 )end, { expr = true, silent = true })
-      vim.keymap.set("i", "<c-x>", function()return vim.fn["codeium#Clear"]() end, { expr = true, silent = true})
-    end,
-  },
-  {
     "NvChad/base46",
     lazy = true,
   },
@@ -22,7 +12,7 @@ return {
   {
     "NvChad/volt",
   },
-  { "nvchad/menu" , lazy = true },
+  { "nvchad/menu", lazy = true },
   {
     "neovim/nvim-lspconfig",
     event = "User FilePost",
@@ -46,10 +36,10 @@ return {
       "TmuxNavigatePrevious",
     },
     keys = {
-      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
@@ -100,8 +90,8 @@ return {
           vim.api.nvim_create_autocmd("InsertLeave", {
             callback = function()
               if
-                require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-                and not require("luasnip").session.jump_active
+                  require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+                  and not require("luasnip").session.jump_active
               then
                 require("luasnip").unlink_current()
               end
@@ -112,15 +102,6 @@ return {
     },
     config = function()
       return require("plugin.plugin_opts.cmp")
-    end,
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-  },
-  {
-    "saadparwaiz1/cmp_luasnip",
-    config = function()
-      return require("plugin.plugin_opts.snips")
     end,
   },
   {
@@ -253,4 +234,40 @@ return {
       })
     end,
   },
+  {
+    --stuff i want to try but not sure if i want to keep
+    {
+      "nanotee/zoxide.vim",
+      event = "CmdLineEnter",
+    },
+    {
+      "ziontee113/syntax-tree-surfer",
+      event = "User FilePost",
+      config = function()
+        require("syntax-tree-surfer").setup()
+        local opts = { noremap = true, silent = true }
+        local sts = require("syntax-tree-surfer")
+
+        vim.keymap.set("n", "vx", '<cmd>STSSelectMasterNode<cr>', opts)
+        vim.keymap.set("n", "vn", '<cmd>STSSelectCurrentNode<cr>', opts)
+        vim.keymap.set("n", "nb", "<cmd>STSJumpToStartOfCurrentNode<CR>")
+        vim.keymap.set("n", "ne", "<cmd>STSJumpToEndOfCurrentNode<CR>")
+        vim.keymap.set("n", "gtf", function()
+          vim.keymap.set("n", "gtf", function()
+            sts.filtered_jump({ "function" }, true)
+          end, opts)
+
+          sts.filtered_jump({ "function" }, true)
+        end, opts)
+
+        vim.keymap.set("n", "gtp", function()
+          sts.filtered_jump({ "function" }, false)
+        end, opts)
+
+        vim.keymap.set("n", "sif", function()
+          sts.targeted_jump({ "if_statement" })
+        end, opts)
+      end
+    },
+  }
 }

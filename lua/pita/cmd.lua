@@ -114,14 +114,5 @@ vim.api.nvim_create_autocmd('FileType', {
     })
   end,
 })
-local format_group = vim.api.nvim_create_augroup("FormatGroup", { clear = true })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  group = format_group,
-  pattern = "*",
-  callback = function()
-    local cursor_pos = vim.api.nvim_win_get_cursor(0)
-    vim.cmd("normal! gg=G")
-    vim.api.nvim_win_set_cursor(0, cursor_pos)
-  end,
-})
+

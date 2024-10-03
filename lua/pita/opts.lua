@@ -24,6 +24,7 @@ opt.whichwrap:append("<>[]hl")
 opt.hlsearch = false
 opt.incsearch = true
 opt.relativenumber = true
+opt.number = true
 opt.mouse = "a"
 opt.showmode = false
 
@@ -44,6 +45,8 @@ o.winblend  = 10
 
 
 --Gs
+g.codeium_manual = true
+g.codeium_no_map_tab = true
 g.codeium_enabled = true
 g.have_nerd_font = false
 g.cursorword_enabled = false
@@ -69,6 +72,7 @@ if g.neovide then
   g.neovide_confirm_quit = true
 end
 
+
 --idont remember what this dose
 --i remember
 --if i am in windows it sets mason to path
@@ -76,3 +80,6 @@ local is_windows = vim.fn.has("win32") ~= 0
 local sep = is_windows and "\\" or "/"
 local delim = is_windows and ";" or ":"
 vim.env.PATH = table.concat({ vim.fn.stdpath("data"), "mason", "bin" }, sep) .. delim .. vim.env.PATH
+
+vim.g.codeium_server_url = 'https://api.codeium.com'
+

@@ -68,8 +68,8 @@ cmp.setup({
     fields = { "abbr", "kind", "menu" },
     expandable_indicator = true,
     format = function(entry, vim_item)
-      local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-      local strings = vim.split(kind.kind, "%s", { trimempty = true })
+      local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 25 })(entry, vim_item)
+      local strings = vim.split(kind.kind, " ", { trimempty = true })
 
       -- Custom source names
       vim_item.menu = ({
@@ -93,8 +93,8 @@ cmp.setup({
         Constructor = '[]',
         field = "[󰜢]",
         Text = '[]',
-        String = "[]",
-        Comment = "[]",
+        String = " ",
+        Comment = " ",
         Class = '[]',
         Interface = '[]',
         Module = '[]',
@@ -113,7 +113,6 @@ cmp.setup({
         Event = '[]',
         Operator = '[]',
         TypeParameter = '[]',
-        -- Add more customizations as needed
       }
 
       -- Combine menu and kind
