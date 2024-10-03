@@ -93,7 +93,7 @@ M.base46 = {
 M.ui = {
 	lsp = { signature = true },
 	statusline = {
-		theme = "vscode",
+		theme = "vscode_colored",
 		separator_style = "default",
 		order = nil,
 		modules = nil,
