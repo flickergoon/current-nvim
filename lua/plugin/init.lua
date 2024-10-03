@@ -90,8 +90,8 @@ return {
           vim.api.nvim_create_autocmd("InsertLeave", {
             callback = function()
               if
-                  require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-                  and not require("luasnip").session.jump_active
+                require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+                and not require("luasnip").session.jump_active
               then
                 require("luasnip").unlink_current()
               end
@@ -239,35 +239,6 @@ return {
     {
       "nanotee/zoxide.vim",
       event = "CmdLineEnter",
-    },
-    {
-      "ziontee113/syntax-tree-surfer",
-      event = "User FilePost",
-      config = function()
-        require("syntax-tree-surfer").setup()
-        local opts = { noremap = true, silent = true }
-        local sts = require("syntax-tree-surfer")
-
-        vim.keymap.set("n", "vx", '<cmd>STSSelectMasterNode<cr>', opts)
-        vim.keymap.set("n", "vn", '<cmd>STSSelectCurrentNode<cr>', opts)
-        vim.keymap.set("n", "nb", "<cmd>STSJumpToStartOfCurrentNode<CR>")
-        vim.keymap.set("n", "ne", "<cmd>STSJumpToEndOfCurrentNode<CR>")
-        vim.keymap.set("n", "gtf", function()
-          vim.keymap.set("n", "gtf", function()
-            sts.filtered_jump({ "function" }, true)
-          end, opts)
-
-          sts.filtered_jump({ "function" }, true)
-        end, opts)
-
-        vim.keymap.set("n", "gtp", function()
-          sts.filtered_jump({ "function" }, false)
-        end, opts)
-
-        vim.keymap.set("n", "sif", function()
-          sts.targeted_jump({ "if_statement" })
-        end, opts)
-      end
     },
   }
 }

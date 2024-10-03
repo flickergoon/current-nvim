@@ -7,8 +7,9 @@ map("n", "<leader>ff", "<cmd>Pick files<CR>", { silent = true, desc = "Find File
 map("n", "<leader>cd", "<cmd>Pick files<CR>", { silent = true, desc = "Find Files" })
 map("n", "<leader>ht", "<cmd>Pick help<CR>", { silent = true, desc = "Help Tags" })
 map("n", "<leader>gb", "<cmd>Pick git_branches <CR>", { silent = true, desc = "Help Tags" })
-map("n", "<leader>gc", "<cmd>Pick git_commits<CR>", { silent = true, desc = "Help Tags" })
-map("n", "<leader>gf", "<cmd>Pick git_files<CR>", { silent = true, desc = "Help Tags" })
+map("n", "<leader>gc", "<cmd>Pick git_commits<CR>", { silent = true, desc = "Git Commits" })
+map("n", "<leader>gf", "<cmd>Pick git_files<CR>", { silent = true, desc = "Git Files" })
+map("n","<leader>xx", "<cmd>Pick diagnostic<CR>", { silent = true, desc = "LSP Diagnostic" })
 
 
 map("v", "J", ":m '>+1<CR>gv=gv") --normal vim stuff
