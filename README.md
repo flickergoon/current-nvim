@@ -113,13 +113,20 @@ gopls: no custom options
   and highlight is enabled
 
   incremental selection mapping:
+
    init_selection = "<leader>is",
 
  - textobject
+
   mappings:
+
    ["af"] = "@function.outer",
+
    ["if"] = "@function.inner",
+
    ["ac"] = "@class.outer",
+
    ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+
    ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" }
 
