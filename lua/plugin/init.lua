@@ -157,7 +157,6 @@ return {
     event = "VeryLazy",
     config = function()
       require('mini.extra').setup()
-      require("mini.git").setup()
       require("mini.indentscope").setup()
       require("mini.notify").setup()
       require("mini.fuzzy").setup()
@@ -243,5 +242,9 @@ return {
   },
   {
     --stuff i want to try but not sure if i want to keep
+    {
+      "tpope/vim-fugitive",
+      event = "VeryLazy",
+    }
   }
 }
