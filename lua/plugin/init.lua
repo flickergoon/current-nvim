@@ -224,20 +224,6 @@ return {
           prompt_prefix = "~ ",
         },
       })
-      require("mini.basics").setup({
-        mappings = {
-          basic = false,
-        },
-        options = {
-          basic = false,
-          extra_ui = false,
-          win_borders = "single",
-        },
-        autocommands = {
-          basic = false,
-          relnum_in_visual_mode = false,
-        },
-      })
     end,
   },
   {
