@@ -28,7 +28,6 @@ local kind_icons = {
   Operator = "",
   TypeParameter = "",
 }
-
 cmp.setup({
   snippet = {
     expand = function(args)
