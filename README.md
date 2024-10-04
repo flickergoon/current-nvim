@@ -120,13 +120,13 @@ gopls: no custom options
 
   mappings:
 
-   ["af"] = "@function.outer",
+   ["af"] = "@function.outer"
 
-   ["if"] = "@function.inner",
+   ["if"] = "@function.inner"
 
-   ["ac"] = "@class.outer",
+   ["ac"] = "@class.outer"
 
-   ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+   ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" }
 
    ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" }
 
