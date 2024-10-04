@@ -1,10 +1,13 @@
 local M = {}
 
 M.base46 = {
-  theme = "solarized_dark",
+  theme = "gruvbox",
   hl_override = {
+    FloatBorder = {
+    bg = "#282828",
+    },
     Normal = {
-      bg = "NONE"
+      bg = "#282828"
     },
     DiagnosticUnnecessary = {
       fg = "#ffffff"

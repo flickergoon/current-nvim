@@ -171,12 +171,9 @@ return {
           mark = "<C-x>",
           mark_all = "<C-a>",
 
-          move_down = "<C-j>",
-          move_start = "<C-g>",
+          move_down = "<C-j>", move_start = "<C-g>",
           move_up = "<C-k>",
-
           paste = "<C-r>",
-
           refine = "<C-Space>",
           refine_marked = "<M-Space>",
 
@@ -193,11 +190,10 @@ return {
 
         -- General options
         options = {
-          -- Whether to show content from bottom to top
-          content_from_bottom = false,
+          content_from_bottom = true,
 
           -- Whether to cache matches (more speed and memory on repeated prompts)
-          use_cache = false,
+          use_cache = true,
         },
 
         source = {
