@@ -68,6 +68,8 @@ return {
     event = "InsertEnter",
     branch = "perf-up",
     dependencies = {
+      "mtoohey31/cmp-fish",
+      "amarakon/nvim-cmp-buffer-lines",
       "hrsh7th/cmp-nvim-lsp",
       "ray-x/cmp-treesitter",
       "hrsh7th/cmp-buffer",
@@ -97,6 +99,14 @@ return {
               end
             end,
           })
+        end,
+      },
+      {
+        'doxnit/cmp-luasnip-choice',
+        config = function()
+          require('cmp_luasnip_choice').setup({
+            auto_open = true,
+          });
         end,
       },
     },
@@ -171,7 +181,8 @@ return {
           mark = "<C-x>",
           mark_all = "<C-a>",
 
-          move_down = "<C-j>", move_start = "<C-g>",
+          move_down = "<C-j>",
+          move_start = "<C-g>",
           move_up = "<C-k>",
           paste = "<C-r>",
           refine = "<C-Space>",

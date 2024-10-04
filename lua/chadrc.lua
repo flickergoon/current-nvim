@@ -1,10 +1,47 @@
 local M = {}
 
+
 M.base46 = {
   theme = "gruvbox",
   hl_override = {
+    CmpItemAbbrDeprecated = {
+      bg = 'NONE',
+      strikethrough = true,
+      fg = '#928374'
+    },
+    CmpItemAbbrMatch = {
+      bg = 'NONE',
+      fg = '#458588'
+    },
+    CmpItemAbbrMatchFuzzy = {
+      link = 'CmpIntemAbbrMatch'
+    },
+    CmpItemKindVariable = {
+      bg = 'NONE', fg = '#83a598'
+    },
+    CmpItemKindInterface = {
+      link = 'CmpItemKindVariable'
+    },
+    CmpItemKindText = {
+      link = 'CmpItemKindVariable'
+    },
+    CmpItemKindFunction = {
+      bg = 'NONE', fg = '#d3869b'
+    },
+    CmpItemKindMethod = {
+      link = 'CmpItemKindFunction'
+    },
+    CmpItemKindKeyword = {
+      bg = 'NONE', fg = '#fbf1c7'
+    },
+    CmpItemKindProperty = {
+      link = 'CmpItemKindKeyword'
+    },
+    CmpItemKindUnit = {
+      link = 'CmpItemKindKeyword'
+    },
     FloatBorder = {
-    bg = "#282828",
+      bg = "#282828",
     },
     Normal = {
       bg = "#282828"

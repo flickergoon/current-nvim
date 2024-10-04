@@ -3,15 +3,16 @@ local o = vim.o
 local g = vim.g
 local s = vim.schedule
 
-s(function()
-  opt.clipboard = "unnamedplus"
-end)
+-- s(function()
+--   opt.clipboard = "unnamedplus"
+-- end)
+
 
 --Opts
 opt.breakindent = true
 opt.smartindent = true
-vim.opt.autoindent = true
-vim.opt.indentexpr = "nvim_treesitter#indent()"
+opt.autoindent = true
+opt.indentexpr = "nvim_treesitter#indent()"
 opt.undofile = true
 opt.ignorecase = true
 opt.smartcase = true
@@ -39,8 +40,9 @@ o.termguicolors = true
 o.cursorline = false
 o.cursorlineopt = "number"
 o.pumblend  = 10
-o.pumheight = 18
+o.pumheight = 10
 o.winblend  = 10
+
 
 
 
@@ -48,6 +50,7 @@ o.winblend  = 10
 
 
 --Gs
+g.have_nerd_font = false
 g.codeium_manual = true
 g.codeium_no_map_tab = true
 g.codeium_enabled = true

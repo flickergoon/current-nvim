@@ -1,6 +1,33 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-local lspkind = require("lspkind")
+local kind_icons = {
+  Nil = "",
+  Text = "",
+  Method = "",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "",
+  Interface = "",
+  Module = "",
+  Property = "",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = "",
+}
 
 cmp.setup({
   snippet = {
@@ -40,88 +67,41 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = "luasnip" },
+    { name = 'luasnip_choice' },
     { name = "nvim_lsp" },
+    { name = 'fish' },
     { name = "buffer" },
     { name = 'treesitter' },
   }),
-  -- formatting = {
-  --   format = lspkind.cmp_format({
-  --     mode = 'symbol_text',
-  --     maxwidth = 50,
-  --     ellipsis_char = '...',
-  --     menu = {
-  --       Struct = "[󰙅 Struct]",
-  --       Operator = "[󰆕 Operator]",
-  --       event = "[ Event]",
-  --       folder = "[󰉋 Folder]",
-  --       Function = "[󰊕 function]",
-  --       Method = "[󰆧 Method]",
-  --       Variable = "[󰀫 Variable]",
-  --       Constant = "[󰏿 Const]",
-  --       field = "[󰜢 Field]",
-  --     },
-  --   }),
-  -- },
-
   formatting = {
-    fields = { "abbr", "kind", "menu" },
-    expandable_indicator = true,
+    fields = { "menu", "abbr", "kind" },
     format = function(entry, vim_item)
-      local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 25 })(entry, vim_item)
-      local strings = vim.split(kind.kind, " ", { trimempty = true })
-
-      -- Custom source names
+      -- Kind icons
+      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
+      -- Source
       vim_item.menu = ({
-        nvim_lsp = "「LS」",
-        buffer = "「BF」",
-        path = "「PA」",
-        luasnip = "「SN」",
-        Codeium = "「AI」",
-        treesitter = "「TS」",
-      })[entry.source.name] or "   "
-
-      -- Custom completion item kind names
-      -- Variable = "[󰀫]",
-      local custom_kind_names = {
-        Struct = "[󰙅]",
-        event = "[]",
-        Function = "[󰊕]",
-        Method = "[󰆧]",
-        Variable = '[]',
-        Constant = "[󰏿]",
-        Constructor = '[]',
-        field = "[󰜢]",
-        Text = '[]',
-        String = " ",
-        Comment = " ",
-        Class = '[]',
-        Interface = '[]',
-        Module = '[]',
-        Unit = '[]',
-        Property = '[]',
-        Value = '[]',
-        Enum = '[ ]',
-        Keyword = '[]',
-        Snippet = '[]',
-        Color = '[]',
-        File = '[]',
-        Reference = '[]',
-        Folder = '[ ]',
-        EnumMember = '[]',
-        Field = '  ',
-        Event = '[]',
-        Operator = '[]',
-        TypeParameter = '[]',
-      }
-
-      -- Combine menu and kind
-      local kind_name = custom_kind_names[strings[1]] or strings[1] or " "
-      kind.kind = string.format("%s  %s ", vim_item.menu, kind_name)
-
-      -- Keep the detailed description in the menu
-      kind.menu = "" .. (" " or " ") .. " "
-
-      return kind
-    end,
+        buffer = "[BFR]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[SNP]",
+        nvim_lua = "[LUA]",
+        latex_symbols = "[LTX]",
+        treesitter = "[TS]",
+        fish = "[FSH]"
+      })[entry.source.name]
+      return vim_item
+    end
   },
+  sorting = {
+    comparators = {
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      cmp.config.compare.recently_used,
+      require("clangd_extensions.cmp_scores"),
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    },
+  },
+
 })
