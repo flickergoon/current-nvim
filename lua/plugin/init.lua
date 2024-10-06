@@ -66,7 +66,6 @@ return {
   {
     "iguanacucumber/magazine.nvim",
     event = "InsertEnter",
-    branch = "perf-up",
     dependencies = {
       "mtoohey31/cmp-fish",
       "amarakon/nvim-cmp-buffer-lines",

@@ -17,8 +17,6 @@ map("v", "K", ":m '>-2<CR>gv=gv", { silent = true })
 map("n", "<C-d>", "zz")
 map("n", "<C-f>", ":<C-f>")
 map("n", "<C-c>", ":cclose<CR>")
-vim.keymap.set('i', '<C-j>', '<C-n>')
-vim.keymap.set('i', '<C-k>', '<C-p>')
 -- Copy to system clipboard
 vim.keymap.set('v', 'gy', '"+y', { noremap = true, silent = true })
 vim.keymap.set('n', 'gy', '"+yy', { noremap = true, silent = true })
