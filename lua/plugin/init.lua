@@ -64,7 +64,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
   },
   {
-    "yioneko/nvim-cmp",
+    "iguanacucumber/magazine.nvim",
     event = "InsertEnter",
     branch = "perf-up",
     dependencies = {
