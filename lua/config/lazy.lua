@@ -75,7 +75,6 @@ require("lazy").setup({
   },
 })
 
-
-require("base46").load_all_highlights()
-dofile(vim.g.base46_cache .. "defaults")
-dofile(vim.g.base46_cache .. "statusline")
+-- require("base46").load_all_highlights()
+-- dofile(vim.g.base46_cache .. "defaults")
+-- dofile(vim.g.base46_cache .. "statusline")

@@ -40,6 +40,7 @@ o.termguicolors = true
 o.cursorline = false
 o.cursorlineopt = "number"
 o.pumblend  = 10
+o.pumheight = 15
 o.winblend  = 10
 
 

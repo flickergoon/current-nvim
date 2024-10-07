@@ -91,6 +91,7 @@ M.base46 = {
       fg = "#ffffff",
     },
     ["@comment"] = { fg = "white", bold = true },
+    Comment = { fg = "white", bold = true },
 
     LineNr = { fg = "white" },
 
@@ -156,7 +157,7 @@ M.ui = {
     enabled = true,
     style = "borderless",
   }, -- borderless / bordered
-  mason = { cmd = true, pkgs = {} },
+  mason = { cmd = false, pkgs = {} },
   tabufline = {
     enabled = false,
   },

@@ -119,5 +119,11 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.cmd("hi Normal guibg=NONE")
+    vim.cmd("hi SignColumn guibg=NONE")
+  end
+})
 
 

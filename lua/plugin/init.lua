@@ -1,21 +1,42 @@
 return {
+  -- {
+  --   "NvChad/base46",
+  --   lazy = true,
+  -- },
+  -- {
+  --   "pita092/ui",
+  --   config = function()
+  --     require("nvchad")
+  --   end,
+  -- },
+  -- {
+  --   "NvChad/volt",
+  -- },
+  -- { "nvchad/menu", lazy = true },
   {
-    "NvChad/base46",
-    lazy = true,
+    "NvChad/nvim-colorizer.lua",
+    event = "VeryLazy",
   },
   {
-    "pita092/ui",
+    "ellisonleao/gruvbox.nvim",
+    event = "VeryLazy",
+    priority = 1000,
     config = function()
-      require("nvchad")
-    end,
+      require("gruvbox").setup({
+        overrides = {
+          NormalFloat = {bg = "#282828"},
+        },
+      })
+      vim.cmd([[colorscheme gruvbox]])
+    end
   },
-  {
-    "NvChad/volt",
-  },
-  { "nvchad/menu", lazy = true },
   {
     "neovim/nvim-lspconfig",
     event = "User FilePost",
+  },
+  {
+    "williamboman/mason.nvim",
+    lazy = false,
   },
   {
     "p00f/clangd_extensions.nvim",
@@ -65,6 +86,7 @@ return {
   },
   {
     "iguanacucumber/magazine.nvim",
+    name = "nvim-cmp",
     event = "InsertEnter",
     dependencies = {
       "mtoohey31/cmp-fish",
