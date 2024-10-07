@@ -1,6 +1,5 @@
 local M = {}
 
-
 M.base46 = {
   theme = "gruvbox",
   hl_override = {
