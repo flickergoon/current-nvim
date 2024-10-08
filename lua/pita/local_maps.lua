@@ -29,16 +29,3 @@ map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP Diagnostic locli
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = 0 })
-
---menu
--- Keyboard users
-vim.keymap.set("n", "<C-t>", function()
-  require("menu").open("default")
-end, {})
-
-vim.keymap.set("n", "<RightMouse>", function()
-  vim.cmd.exec '"normal! \\<RightMouse>"'
-
-  local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
-  require("menu").open(options, { mouse = true })
-end, {})

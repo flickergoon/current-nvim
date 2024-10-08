@@ -24,7 +24,7 @@ return {
     config = function()
       require("gruvbox").setup({
         overrides = {
-          NormalFloat = {bg = "#282828"},
+          NormalFloat = { bg = "#272727" },
         },
       })
       vim.cmd([[colorscheme gruvbox]])
@@ -36,7 +36,7 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    lazy = false,
+    cmd = { "Mason", "MasonInstall" }
   },
   {
     "p00f/clangd_extensions.nvim",
@@ -160,6 +160,7 @@ return {
     "echasnovski/mini.nvim",
     event = "VeryLazy",
     config = function()
+      require('mini.statusline').setup()
       require('mini.extra').setup()
       require("mini.indentscope").setup()
       require("mini.notify").setup()
@@ -230,4 +231,9 @@ return {
       })
     end,
   },
+  {
+    'stevearc/dressing.nvim',
+    event = "VeryLazy",
+    opts = {},
+  }
 }

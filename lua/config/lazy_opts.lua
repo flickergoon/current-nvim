@@ -3,7 +3,7 @@ return {
 
 	ui = {
 		icons = {
-			ft = "fr | ",
+			ft = "ft | ",
 			lazy = "Lazy | ",
 			loaded = "loaded | ",
 			not_loaded = "Not loaded | ",
