@@ -1,4 +1,4 @@
-vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#282828" })
+vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#272727" })
 
 local cmp = require("cmp")
 local luasnip = require("luasnip")
