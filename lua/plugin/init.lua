@@ -22,21 +22,13 @@ return {
     event = "VeryLazy",
     priority = 1000,
     config = function()
-      require("gruvbox").setup({
-        overrides = {
-          NormalFloat = { bg = "#272727" },
-        },
-      })
+      require("gruvbox").setup({})
       vim.cmd([[colorscheme gruvbox]])
     end
   },
   {
     "neovim/nvim-lspconfig",
     event = "User FilePost",
-  },
-  {
-    "williamboman/mason.nvim",
-    cmd = { "Mason", "MasonInstall" }
   },
   {
     "p00f/clangd_extensions.nvim",
@@ -92,7 +84,6 @@ return {
       "mtoohey31/cmp-fish",
       "amarakon/nvim-cmp-buffer-lines",
       "hrsh7th/cmp-nvim-lsp",
-      "ray-x/cmp-treesitter",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
@@ -159,78 +150,10 @@ return {
   {
     "echasnovski/mini.nvim",
     event = "VeryLazy",
-    config = function()
-      require('mini.statusline').setup()
-      require('mini.extra').setup()
-      require("mini.indentscope").setup()
-      require("mini.notify").setup()
-      require("mini.fuzzy").setup()
-      require("mini.splitjoin").setup({ mappings = { toggle = "<leader>m" } })
-      require("mini.pick").setup({
-        mappings = {
-          caret_left = "<Left>",
-          caret_right = "<Right>",
-
-          choose = "<CR>",
-          choose_in_split = "<C-s>",
-          choose_in_tabpage = "<C-t>",
-          choose_in_vsplit = "<C-v>",
-          choose_marked = "<M-CR>",
-
-          delete_char = "<BS>",
-          delete_char_right = "<Del>",
-          delete_left = "<C-u>",
-          delete_word = "<C-w>",
-
-          mark = "<C-x>",
-          mark_all = "<C-a>",
-
-          move_down = "<C-j>",
-          move_start = "<C-g>",
-          move_up = "<C-k>",
-          paste = "<C-r>",
-          refine = "<C-Space>",
-          refine_marked = "<M-Space>",
-
-          scroll_down = "<C-f>",
-          scroll_left = "<C-h>",
-          scroll_right = "<C-l>",
-          scroll_up = "<C-b>",
-
-          stop = "<Esc>",
-
-          toggle_info = "<S-Tab>",
-          toggle_preview = "<Tab>",
-        },
-
-        -- General options
-        options = {
-          content_from_bottom = true,
-
-          -- Whether to cache matches (more speed and memory on repeated prompts)
-          use_cache = true,
-        },
-
-        source = {
-
-          items = nil,
-          name = nil,
-          cwd = nil,
-
-          match = nil,
-          show = nil,
-          preview = nil,
-
-          choose = nil,
-          choose_marked = nil,
-        },
-        window = {
-          prompt_cursor = "|",
-          prompt_prefix = "~ ",
-        },
-      })
-    end,
-  },
+    config = function ()
+    return require("plugin.plugin_opts.mini")
+    end
+     },
   {
     'stevearc/dressing.nvim',
     event = "VeryLazy",

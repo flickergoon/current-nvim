@@ -1,3 +1,5 @@
+vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#282828" })
+
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 local kind_icons = {
@@ -34,7 +36,11 @@ cmp.setup({
       require("luasnip").lsp_expand(args.body)
     end,
   },
-  window = {},
+  window = {
+    completion = {
+      winhighlight = "Normal:CmpNormal",
+    }
+  },
   mapping = cmp.mapping.preset.insert({
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -69,7 +75,6 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = 'fish' },
     { name = "buffer" },
-    { name = 'treesitter' },
   }),
   formatting = {
     fields = { "menu", "abbr", "kind" },
@@ -102,19 +107,3 @@ cmp.setup({
     },
   },
 })
--- gray
-vim.api.nvim_set_hl(0, 'CmpItemAbbrDeprecated', { bg='NONE', strikethrough=true, fg='#808080' })
--- blue
-vim.api.nvim_set_hl(0, 'CmpItemAbbrMatch', { bg='NONE', fg='#98971a' })
-vim.api.nvim_set_hl(0, 'CmpItemAbbrMatchFuzzy', { link='CmpIntemAbbrMatch' })
--- light blue
-vim.api.nvim_set_hl(0, 'CmpItemKindVariable', { bg='NONE', fg='#458588' })
-vim.api.nvim_set_hl(0, 'CmpItemKindInterface', { link='CmpItemKindVariable' })
-vim.api.nvim_set_hl(0, 'CmpItemKindText', { link='CmpItemKindVariable' })
--- pink
-vim.api.nvim_set_hl(0, 'CmpItemKindFunction', { bg='NONE', fg='#b16286' })
-vim.api.nvim_set_hl(0, 'CmpItemKindMethod', { link='CmpItemKindFunction' })
--- front
-vim.api.nvim_set_hl(0, 'CmpItemKindKeyword', { bg='NONE', fg='#f9f5d7' })
-vim.api.nvim_set_hl(0, 'CmpItemKindProperty', { link='CmpItemKindKeyword' })
-vim.api.nvim_set_hl(0, 'CmpItemKindUnit', { link='CmpItemKindKeyword' })
