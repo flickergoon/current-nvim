@@ -1,4 +1,7 @@
 return {
+  {
+    "nvim-lua/plenary.nvim",
+  },
   -- {
   --   "NvChad/base46",
   --   lazy = true,
@@ -13,10 +16,6 @@ return {
   --   "NvChad/volt",
   -- },
   -- { "nvchad/menu", lazy = true },
-  {
-    "NvChad/nvim-colorizer.lua",
-    event = "VeryLazy",
-  },
   {
     "ellisonleao/gruvbox.nvim",
     event = "VeryLazy",
@@ -38,26 +37,6 @@ return {
         highlight = "@comment",
       },
     },
-  },
-  {
-    "christoomey/vim-tmux-navigator",
-    cmd = {
-      "TmuxNavigateLeft",
-      "TmuxNavigateDown",
-      "TmuxNavigateUp",
-      "TmuxNavigateRight",
-      "TmuxNavigatePrevious",
-    },
-    keys = {
-      { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
-      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-    },
-  },
-  {
-    "nvim-lua/plenary.nvim",
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -150,13 +129,15 @@ return {
   {
     "echasnovski/mini.nvim",
     event = "VeryLazy",
-    config = function ()
-    return require("plugin.plugin_opts.mini")
+    config = function()
+      return require("plugin.plugin_opts.mini")
     end
-     },
+  },
   {
-    'stevearc/dressing.nvim',
-    event = "VeryLazy",
-    opts = {},
-  }
+    "norcalli/nvim-colorizer.lua",
+    event = "BufReadPost",
+    config = function()
+      require 'colorizer'.setup()
+    end
+  },
 }

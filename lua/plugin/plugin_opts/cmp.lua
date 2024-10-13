@@ -1,5 +1,4 @@
-vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#272727" })
-
+vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#202020" })
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 local kind_icons = {
@@ -39,6 +38,7 @@ cmp.setup({
   window = {
     completion = {
       winhighlight = "Normal:CmpNormal",
+      scrollbar = false
     }
   },
   mapping = cmp.mapping.preset.insert({
@@ -107,3 +107,4 @@ cmp.setup({
     },
   },
 })
+
