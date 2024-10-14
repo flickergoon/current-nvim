@@ -1,12 +1,11 @@
-vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#202020" })
 
-vim.api.nvim_command('highlight CmpItemMenuBuffer guifg=#3c3836')
-vim.api.nvim_command('highlight CmpItemMenuNvimLsp guifg=#3c3836')
-vim.api.nvim_command('highlight CmpItemMenuLuasnip guifg=#3c3836')
-vim.api.nvim_command('highlight CmpItemMenuNvimLua guifg=#3c3836')
-vim.api.nvim_command('highlight CmpItemMenuLatexSymbols guifg=#3c3836')
-vim.api.nvim_command('highlight CmpItemMenuTreesitter guifg=#3c3836')
-vim.api.nvim_command('highlight CmpItemMenuFish guifg=#3c3836')
+vim.api.nvim_command('highlight CmpItemMenuBuffer guifg=#7c6f64')
+vim.api.nvim_command('highlight CmpItemMenuNvimLsp guifg=#7c6f64')
+vim.api.nvim_command('highlight CmpItemMenuLuasnip guifg=#7c6f64')
+vim.api.nvim_command('highlight CmpItemMenuNvimLua guifg=#7c6f64')
+vim.api.nvim_command('highlight CmpItemMenuLatexSymbols guifg=#7c6f64')
+vim.api.nvim_command('highlight CmpItemMenuTreesitter guifg=#7c6f64')
+vim.api.nvim_command('highlight CmpItemMenuFish guifg=#7c6f64')
 
 
 local cmp = require("cmp")

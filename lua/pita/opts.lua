@@ -39,11 +39,12 @@ opt.fillchars = { eob = " " }
 o.showtabline = 0
 o.expandtab = true
 o.termguicolors = true
-o.cursorline = false
-o.cursorlineopt = "number"
+o.cursorline = true
+o.cursorlineopt = "both"
 o.pumblend  = 10
 o.pumheight = 15
-o.winblend  = 10
+o.winblend  = 0
+
 
 
 

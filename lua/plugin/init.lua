@@ -23,12 +23,27 @@ return {
     config = function()
       require("gruvbox").setup({
         overrides = {
+          --cursorline
+          CursorLineNr              = { bg = "#282828", fg = "#bdae93" },
+          CursorLine                = { bg = "#32302f" },
+          --lazy
+          LazyButton                = { bg = "#202020" },
+          LazyNormal                = { bg = "#202020" },
+          LazyH1                    = { bg = "#3c3836", fg = "#928374" },
+          LazySpecial               = { fg = "#7c6f64" },
+          LazyReasonEvent           = { fg = "#3c3836" },
+          LazyReasonSource          = { fg = "#3c3836" },
+          LazyReasonRequire         = { fg = "#3c3836" },
+          LazyReasonPlugin          = { fg = "#3c3836" },
+          LazyReasonCmd             = { fg = "#fbf1c7" },
+
           --netrw
-          netrwClassify             = { fg = "#ebdbb2" },
+          netrwClassify             = { fg = "#7c6f64" },
           netrwDir                  = { fg = "#928374", gui = bold },
-          netrwPlain                = { fg = "#ebdbb2" },
+          netrwPlain                = { fg = "#d5c4a1" },
 
           --cmp
+          CmpNormal                 = { bg = "#202020" },
           CmpItemAbbr               = { fg = "#d5c4a1" },
           CmpItemAbbrMatch          = { fg = "#7c6f64" },
           CmpItemAbbrMatchFuzzy     = { fg = "#7c6f64" },

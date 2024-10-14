@@ -125,5 +125,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
     vim.cmd("hi SignColumn guibg=NONE")
   end
 })
-
-
+vim.api.nvim_create_autocmd("BufReadPost", {
+  callback = function()
+    vim.cmd("set cursorline")
+  end
+})
