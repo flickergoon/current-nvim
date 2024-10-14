@@ -71,5 +71,4 @@ lspconfig.lua_ls.setup({
 lspconfig.clangd.setup({})
 lspconfig.csharp_ls.setup({})
 lspconfig.gopls.setup({})
-
-
+lspconfig.hls.setup({})

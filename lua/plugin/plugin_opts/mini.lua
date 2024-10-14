@@ -1,5 +1,12 @@
-require('mini.statusline').setup()
 require('mini.extra').setup()
+require('mini.statusline').setup({
+  content = {
+    active = nil,
+    inactive = nil,
+  },
+  use_icons = false,
+  set_vim_settings = true,
+})
 require("mini.indentscope").setup()
 require("mini.notify").setup()
 require("mini.fuzzy").setup()

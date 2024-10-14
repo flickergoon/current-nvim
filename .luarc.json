@@ -3,7 +3,8 @@
     "version": "LuaJIT"
   },
   "diagnostics": {
-    "globals": ["vim"]
+    "globals": ["vim",
+            "bold"]
   },
   "workspace": {
     "library": ["$VIMRUNTIME/lua", "$VIMRUNTIME/lua/vim/lsp"]

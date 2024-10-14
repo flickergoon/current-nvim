@@ -31,6 +31,8 @@ opt.relativenumber = true
 opt.number = true
 opt.mouse = "a"
 opt.showmode = false
+opt.fillchars = { eob = " " }
+
 
 
 --Os

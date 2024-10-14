@@ -21,7 +21,41 @@ return {
     event = "VeryLazy",
     priority = 1000,
     config = function()
-      require("gruvbox").setup({})
+      require("gruvbox").setup({
+        overrides = {
+          --netrw
+          netrwClassify             = { fg = "#ebdbb2" },
+          netrwDir                  = { fg = "#928374", gui = bold },
+          netrwPlain                = { fg = "#ebdbb2" },
+
+          --cmp
+          CmpItemAbbr               = { fg = "#d5c4a1" },
+          CmpItemAbbrMatch          = { fg = "#7c6f64" },
+          CmpItemAbbrMatchFuzzy     = { fg = "#7c6f64" },
+          CmpItemKindUnit           = { bg = 'NONE', fg = '#3c3836' },
+          CmpItemKindProperty       = { bg = 'NONE', fg = '#3c3836' },
+          CmpItemKindKeyword        = { bg = 'NONE', fg = '#3c3836' },
+          CmpItemKindMethod         = { bg = 'NONE', fg = '#3c3836' },
+          CmpItemKindFunction       = { bg = 'NONE', fg = '#3c3836' },
+          CmpItemKindText           = { bg = 'NONE', fg = '#3c3836' },
+          CmpItemKindInterface      = { bg = 'NONE', fg = '#3c3836' },
+          CmpItemKindVariable       = { bg = 'NONE', fg = '#3c3836' },
+          CmpItemKindField          = { bg = 'NONE', fg = '#3c3836' },
+          CmpItemKindSnippet        = { bg = 'NONE', fg = '#3c3836' },
+          CmpItemAbbrDeprecated     = { bg = 'NONE', strikethrough = true, fg = '#3c3836' },
+
+          --ministatusline
+          MiniStatuslineModeVisual  = { bg = "#3c3836", fg = "#928374" },
+          MiniStatuslineModeReplace = { bg = "#3c3836", fg = "#928374" },
+          MiniStatuslineModeInsert  = { bg = "#3c3836", fg = "#928374" },
+          MiniStatuslineModeCommand = { bg = "#3c3836", fg = "#928374" },
+          MiniStatuslineModeNormal  = { bg = "#3c3836", fg = "#928374" },
+          MiniStatuslineModeOther   = { bg = "#202020", fg = "#928374" },
+          MiniStatuslineDevinfo     = { bg = "#202020", fg = "#928374" },
+          MiniStatuslineFileinfo    = { bg = "#202020", fg = "#928374" },
+          MiniStatuslineFilename    = { bg = "#202020", fg = "#928374" },
+        },
+      })
       vim.cmd([[colorscheme gruvbox]])
     end
   },

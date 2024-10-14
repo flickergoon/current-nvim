@@ -1,4 +1,14 @@
 vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#202020" })
+
+vim.api.nvim_command('highlight CmpItemMenuBuffer guifg=#3c3836')
+vim.api.nvim_command('highlight CmpItemMenuNvimLsp guifg=#3c3836')
+vim.api.nvim_command('highlight CmpItemMenuLuasnip guifg=#3c3836')
+vim.api.nvim_command('highlight CmpItemMenuNvimLua guifg=#3c3836')
+vim.api.nvim_command('highlight CmpItemMenuLatexSymbols guifg=#3c3836')
+vim.api.nvim_command('highlight CmpItemMenuTreesitter guifg=#3c3836')
+vim.api.nvim_command('highlight CmpItemMenuFish guifg=#3c3836')
+
+
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 local kind_icons = {
@@ -39,6 +49,10 @@ cmp.setup({
     completion = {
       winhighlight = "Normal:CmpNormal",
       scrollbar = false
+    },
+    documentation = {
+      winhighlight = "Normal:CmpNormal",
+      scrollbar = false,
     }
   },
   mapping = cmp.mapping.preset.insert({
@@ -76,24 +90,67 @@ cmp.setup({
     { name = 'fish' },
     { name = "buffer" },
   }),
+
   formatting = {
     fields = { "menu", "abbr", "kind" },
     format = function(entry, vim_item)
       -- Kind icons
-      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
+      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+
       -- Source
-      vim_item.menu = ({
-        buffer = "[BFR]",
-        nvim_lsp = "[LSP]",
-        luasnip = "[SNP]",
-        nvim_lua = "[LUA]",
-        latex_symbols = "[LTX]",
-        treesitter = "[TS]",
-        fish = "[FSH]"
-      })[entry.source.name]
+      local menu_text, hl_group
+      if entry.source.name == 'buffer' then
+        menu_text = "[BFR]"
+        hl_group = "CmpItemMenuBuffer"
+      elseif entry.source.name == 'nvim_lsp' then
+        menu_text = "[LSP]"
+        hl_group = "CmpItemMenuNvimLsp"
+      elseif entry.source.name == 'luasnip' then
+        menu_text = "[SNP]"
+        hl_group = "CmpItemMenuLuasnip"
+      elseif entry.source.name == 'nvim_lua' then
+        menu_text = "[LUA]"
+        hl_group = "CmpItemMenuNvimLua"
+      elseif entry.source.name == 'latex_symbols' then
+        menu_text = "[LTX]"
+        hl_group = "CmpItemMenuLatexSymbols"
+      elseif entry.source.name == 'treesitter' then
+        menu_text = "[TS]"
+        hl_group = "CmpItemMenuTreesitter"
+      elseif entry.source.name == 'fish' then
+        menu_text = "[FSH]"
+        hl_group = "CmpItemMenuFish"
+      else
+        menu_text = "[" .. entry.source.name .. "]"
+        hl_group = "Normal"
+      end
+
+      vim_item.menu = menu_text
+      vim_item.menu_hl_group = hl_group
+
       return vim_item
     end
   },
+
+
+  -- formatting = {
+  --   fields = { "menu", "abbr", "kind" },
+  --   format = function(entry, vim_item)
+  --     -- Kind icons
+  --     vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
+  --     -- Source
+  --     vim_item.menu = ({
+  --       buffer = "[BFR]",
+  --       nvim_lsp = "[LSP]",
+  --       luasnip = "[SNP]",
+  --       nvim_lua = "[LUA]",
+  --       latex_symbols = "[LTX]",
+  --       treesitter = "[TS]",
+  --       fish = "[FSH]"
+  --     })[entry.source.name]
+  --     return vim_item
+  --   end
+  -- },
   sorting = {
     comparators = {
       cmp.config.compare.offset,
@@ -107,4 +164,3 @@ cmp.setup({
     },
   },
 })
-
