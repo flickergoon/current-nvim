@@ -5,6 +5,10 @@ map("n", "<C-h>", "<cmd>TmuxNavigateRight <CR>", { desc = "switch window left" }
 map("n", "<C-l>", "<cmd>TmuxNavigateLeft<CR>", { desc = "switch window right" })
 map("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", { desc = "switch window down" })
 map("n", "<C-k>", "<cmd>TmuxNavigateUp <CR>", { desc = "switch window up" })
+map("t", "<C-h>", "<cmd>TmuxNavigateRight <CR>", { desc = "switch window left" })
+map("t", "<C-l>", "<cmd>TmuxNavigateLeft<CR>", { desc = "switch window right" })
+map("t", "<C-j>", "<cmd>TmuxNavigateDown<CR>", { desc = "switch window down" })
+map("t", "<C-k>", "<cmd>TmuxNavigateUp <CR>", { desc = "switch window up" })
 
 
 --mini stuff
