@@ -10,7 +10,7 @@ map("n", "<leader>gb", "<cmd>Pick git_branches <CR>", { silent = true, desc = "H
 map("n", "<leader>gc", "<cmd>Pick git_commits<CR>", { silent = true, desc = "Git Commits" })
 map("n", "<leader>gf", "<cmd>Pick git_files<CR>", { silent = true, desc = "Git Files" })
 map("n","<leader>xx", "<cmd>Pick diagnostic<CR>", { silent = true, desc = "LSP Diagnostic" })
-
+map('t', '<Esc>', [[<C-\><C-n>]])
 
 map("v", "J", ":m '>+1<CR>gv=gv") --normal vim stuff
 map("v", "K", ":m '>-2<CR>gv=gv", { silent = true })
