@@ -1,5 +1,12 @@
 local map = vim.keymap.set
 
+--stuff
+map("n", "<C-h>", "<cmd>TmuxNavigateRight <CR>", { desc = "switch window left" })
+map("n", "<C-l>", "<cmd>TmuxNavigateLeft<CR>", { desc = "switch window right" })
+map("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", { desc = "switch window down" })
+map("n", "<C-k>", "<cmd>TmuxNavigateUp <CR>", { desc = "switch window up" })
+
+
 --mini stuff
 map("n", "<leader>o", "<cmd>Pick grep_live<CR>", { silent = true, desc = "Grep Live" })
 map("n", "<leader>bb", "<cmd>Pick buffers<CR>", { silent = true, desc = "Buffer Buffers" })
