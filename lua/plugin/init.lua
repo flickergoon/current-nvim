@@ -2,20 +2,6 @@ return {
   {
     "nvim-lua/plenary.nvim",
   },
-  -- {
-  --   "NvChad/base46",
-  --   lazy = true,
-  -- },
-  -- {
-  --   "pita092/ui",
-  --   config = function()
-  --     require("nvchad")
-  --   end,
-  -- },
-  -- {
-  --   "NvChad/volt",
-  -- },
-  -- { "nvchad/menu", lazy = true },
   {
     "ellisonleao/gruvbox.nvim",
     event = "VeryLazy",
@@ -23,9 +9,16 @@ return {
     config = function()
       require("gruvbox").setup({
         overrides = {
+          --lsp
+          DiagnosticSignHint        = { link = "DiagnosticHint" },
+          DiagnosticSignWarn        = { link = "DiagnosticWarn" },
+          DiagnosticSignInfo        = { link = "DiagnosticInfo" },
+          DiagnosticSignError       = { link = "DiagnosticError" },
+
           --cursorline
           CursorLineNr              = { bg = "#282828", fg = "#bdae93" },
           CursorLine                = { bg = "#32302f" },
+
           --lazy
           LazyButton                = { bg = "#202020" },
           LazyNormal                = { bg = "#202020" },
@@ -36,6 +29,13 @@ return {
           LazyReasonRequire         = { fg = "#3c3836" },
           LazyReasonPlugin          = { fg = "#3c3836" },
           LazyReasonCmd             = { fg = "#fbf1c7" },
+          LazyReasonRuntime         = { fg = "#3c3836" },
+          LazyReasonStart           = { fg = "#3c3836" },
+          LazyReasonImport          = { fg = "#3c3836" },
+          LazyProp                  = { fg = "#fbf1c7" },
+          LazyCommit                = { fg = "#d5c4a1" },
+          LazyCommitType            = { fg = "#32302f" },
+          LazyDimmed                = { fg = "#32302f" },
 
           --netrw
           netrwClassify             = { fg = "#7c6f64" },
@@ -47,17 +47,20 @@ return {
           CmpItemAbbr               = { fg = "#d5c4a1" },
           CmpItemAbbrMatch          = { fg = "#7c6f64" },
           CmpItemAbbrMatchFuzzy     = { fg = "#7c6f64" },
-          CmpItemKindUnit           = { bg = 'NONE', fg = '#3c3836' },
-          CmpItemKindProperty       = { bg = 'NONE', fg = '#3c3836' },
-          CmpItemKindKeyword        = { bg = 'NONE', fg = '#3c3836' },
-          CmpItemKindMethod         = { bg = 'NONE', fg = '#3c3836' },
-          CmpItemKindFunction       = { bg = 'NONE', fg = '#3c3836' },
-          CmpItemKindText           = { bg = 'NONE', fg = '#3c3836' },
-          CmpItemKindInterface      = { bg = 'NONE', fg = '#3c3836' },
-          CmpItemKindVariable       = { bg = 'NONE', fg = '#3c3836' },
-          CmpItemKindField          = { bg = 'NONE', fg = '#3c3836' },
-          CmpItemKindSnippet        = { bg = 'NONE', fg = '#3c3836' },
+          CmpItemKindUnit           = { bg = 'NONE', fg = '#f2e5bc' },
+          CmpItemKindProperty       = { bg = 'NONE', fg = '#f2e5bc' },
+          CmpItemKindKeyword        = { bg = 'NONE', fg = '#f2e5bc' },
+          CmpItemKindMethod         = { bg = 'NONE', fg = '#f2e5bc' },
+          CmpItemKindFunction       = { bg = 'NONE', fg = '#f2e5bc' },
+          CmpItemKindText           = { bg = 'NONE', fg = '#f2e5bc' },
+          CmpItemKindInterface      = { bg = 'NONE', fg = '#f2e5bc' },
+          CmpItemKindVariable       = { bg = 'NONE', fg = '#f2e5bc' },
+          CmpItemKindField          = { bg = 'NONE', fg = '#f2e5bc' },
+          CmpItemKindSnippet        = { bg = 'NONE', fg = '#f2e5bc' },
           CmpItemAbbrDeprecated     = { bg = 'NONE', strikethrough = true, fg = '#3c3836' },
+          cmpItemKIndEnum           = { bg = 'NONE', fg = '#f2e5bc' },
+          cmpItemKIndStruct         = { bg = 'NONE', fg = '#f2e5bc' },
+          cmpItemKIndClass          = { bg = 'NONE', fg = '#f2e5bc' },
 
           --ministatusline
           MiniStatuslineModeVisual  = { bg = "#3c3836", fg = "#928374" },
@@ -116,7 +119,6 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
-      "onsails/lspkind.nvim",
       {
         "L3MON4D3/LuaSnip",
         dependencies = "rafamadriz/friendly-snippets",
@@ -135,44 +137,6 @@ return {
     },
     config = function()
       return require("plugin.plugin_opts.cmp")
-    end,
-  },
-  {
-    "ThePrimeagen/harpoon",
-    event = "VeryLazy",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      local toggle_opts = {
-        ui_width_ratio = 0.35,
-        border = "single",
-        title_pos = "center",
-      }
-      local harpoon = require("harpoon")
-
-      -- REQUIRED
-      harpoon:setup()
-      -- REQUIRED
-
-      vim.keymap.set("n", "<leader>a", function()
-        harpoon:list():add()
-      end)
-      vim.keymap.set("n", "<leader>f", function()
-        harpoon.ui:toggle_quick_menu(harpoon:list(), toggle_opts)
-      end)
-
-      vim.keymap.set("n", "<C-1>", function()
-        harpoon:list():select(1)
-      end)
-      vim.keymap.set("n", "<C-2>", function()
-        harpoon:list():select(2)
-      end)
-      vim.keymap.set("n", "<C-3>", function()
-        harpoon:list():select(3)
-      end)
-      vim.keymap.set("n", "<C-4>", function()
-        harpoon:list():select(4)
-      end)
     end,
   },
   {

@@ -163,3 +163,80 @@ M.ui = {
 }
 
 return M
+
+
+
+--harpoon
+
+
+  -- {
+  --   "ThePrimeagen/harpoon",
+  --   event = "VeryLazy",
+  --   branch = "harpoon2",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   config = function()
+  --     local toggle_opts = {
+  --       ui_width_ratio = 0.35,
+  --       border = "single",
+  --       title_pos = "center",
+  --     }
+  --     local harpoon = require("harpoon")
+  --
+  --     -- REQUIRED
+  --     harpoon:setup()
+  --     -- REQUIRED
+  --
+  --     vim.keymap.set("n", "<leader>a", function()
+  --       harpoon:list():add()
+  --     end)
+  --     vim.keymap.set("n", "<leader>f", function()
+  --       harpoon.ui:toggle_quick_menu(harpoon:list(), toggle_opts)
+  --     end)
+  --
+  --     vim.keymap.set("n", "<C-1>", function()
+  --       harpoon:list():select(1)
+  --     end)
+  --     vim.keymap.set("n", "<C-2>", function()
+  --       harpoon:list():select(2)
+  --     end)
+  --     vim.keymap.set("n", "<C-3>", function()
+  --       harpoon:list():select(3)
+  --     end)
+  --     vim.keymap.set("n", "<C-4>", function()
+  --       harpoon:list():select(4)
+  --     end)
+  --   end,
+  -- }
+
+
+--lsp kind for nvim-cmp
+
+
+-- local kind_icons = {
+--   Nil = "",
+--   Text = "",
+--   Method = "",
+--   Function = "",
+--   Constructor = "",
+--   Field = "",
+--   Variable = "",
+--   Class = "",
+--   Interface = "",
+--   Module = "",
+--   Property = "",
+--   Unit = "",
+--   Value = "",
+--   Enum = "",
+--   Keyword = "",
+--   Snippet = "",
+--   Color = "",
+--   File = "",
+--   Reference = "",
+--   Folder = "",
+--   EnumMember = "",
+--   Constant = "",
+--   Struct = "",
+--   Event = "",
+--   Operator = "",
+--   TypeParameter = "",
+-- }

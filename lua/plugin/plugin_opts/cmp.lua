@@ -1,43 +1,15 @@
 
-vim.api.nvim_command('highlight CmpItemMenuBuffer guifg=#7c6f64')
-vim.api.nvim_command('highlight CmpItemMenuNvimLsp guifg=#7c6f64')
-vim.api.nvim_command('highlight CmpItemMenuLuasnip guifg=#7c6f64')
-vim.api.nvim_command('highlight CmpItemMenuNvimLua guifg=#7c6f64')
-vim.api.nvim_command('highlight CmpItemMenuLatexSymbols guifg=#7c6f64')
-vim.api.nvim_command('highlight CmpItemMenuTreesitter guifg=#7c6f64')
-vim.api.nvim_command('highlight CmpItemMenuFish guifg=#7c6f64')
+vim.api.nvim_command('highlight CmpItemMenuBuffer guifg=#504945')
+vim.api.nvim_command('highlight CmpItemMenuNvimLsp guifg=#504945')
+vim.api.nvim_command('highlight CmpItemMenuLuasnip guifg=#504945')
+vim.api.nvim_command('highlight CmpItemMenuNvimLua guifg=#504945')
+vim.api.nvim_command('highlight CmpItemMenuLatexSymbols guifg=#504945')
+vim.api.nvim_command('highlight CmpItemMenuTreesitter guifg=#504945')
+vim.api.nvim_command('highlight CmpItemMenuFish guifg=#504945')
 
 
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-local kind_icons = {
-  Nil = "",
-  Text = "",
-  Method = "",
-  Function = "",
-  Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "",
-  Interface = "",
-  Module = "",
-  Property = "",
-  Unit = "",
-  Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "",
-  Event = "",
-  Operator = "",
-  TypeParameter = "",
-}
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -94,7 +66,6 @@ cmp.setup({
     fields = { "menu", "abbr", "kind" },
     format = function(entry, vim_item)
       -- Kind icons
-      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
 
       -- Source
       local menu_text, hl_group
