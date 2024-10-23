@@ -3,8 +3,7 @@ vim.api.nvim_command('highlight LogoNormal guifg=#83a598')
 i took it from
 https://github.com/Bekaboo/nvim
 --]]
-
-
+--
 -- Global variables to store the buffer and window
 local intro_buf, intro_win
 
@@ -20,7 +19,7 @@ local function should_show_intro()
 end
 
 local function create_intro_message()
-  local logo = 'Pita:'
+  local logo = 'Neovim:'
 
   ---Lines of text and highlight groups to display as intro message
   local lines = {

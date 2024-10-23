@@ -1,4 +1,5 @@
 return {
+  "nvim-telescope/telescope.nvim",
   {
     'eandrju/cellular-automaton.nvim',
   },
@@ -11,7 +12,9 @@ return {
     priority = 1000,
     config = function()
       require("gruvbox").setup({
+        contrast = "hard",
         overrides = {
+
           --custom stuff
           Accent                    = { bg = "NONE", fg = "#83a598" },
 
