@@ -1,5 +1,8 @@
 return {
   {
+    'eandrju/cellular-automaton.nvim',
+  },
+  {
     "nvim-lua/plenary.nvim",
   },
   {
@@ -9,6 +12,12 @@ return {
     config = function()
       require("gruvbox").setup({
         overrides = {
+          --custom stuff
+          Accent                    = { bg = "NONE", fg = "#83a598" },
+
+          --vim stuff
+          ModeMsg                   = { fg = "#7c6f64" },
+
           --lsp
           DiagnosticSignHint        = { link = "DiagnosticHint" },
           DiagnosticSignWarn        = { link = "DiagnosticWarn" },
@@ -16,7 +25,7 @@ return {
           DiagnosticSignError       = { link = "DiagnosticError" },
 
           --cursorline
-          CursorLineNr              = { bg = "#282828", fg = "#bdae93" },
+          CursorLineNr              = { bg = "#1d2021", fg = "#bdae93" },
           CursorLine                = { bg = "#32302f" },
 
           --lazy
@@ -45,22 +54,22 @@ return {
           --cmp
           CmpNormal                 = { bg = "#202020" },
           CmpItemAbbr               = { fg = "#d5c4a1" },
-          CmpItemAbbrMatch          = { fg = "#7c6f64" },
-          CmpItemAbbrMatchFuzzy     = { fg = "#7c6f64" },
-          CmpItemKindUnit           = { bg = 'NONE', fg = '#f2e5bc' },
-          CmpItemKindProperty       = { bg = 'NONE', fg = '#f2e5bc' },
-          CmpItemKindKeyword        = { bg = 'NONE', fg = '#f2e5bc' },
-          CmpItemKindMethod         = { bg = 'NONE', fg = '#f2e5bc' },
-          CmpItemKindFunction       = { bg = 'NONE', fg = '#f2e5bc' },
-          CmpItemKindText           = { bg = 'NONE', fg = '#f2e5bc' },
-          CmpItemKindInterface      = { bg = 'NONE', fg = '#f2e5bc' },
-          CmpItemKindVariable       = { bg = 'NONE', fg = '#f2e5bc' },
-          CmpItemKindField          = { bg = 'NONE', fg = '#f2e5bc' },
-          CmpItemKindSnippet        = { bg = 'NONE', fg = '#f2e5bc' },
+          CmpItemAbbrMatch          = { link = "Accent" },
+          CmpItemAbbrMatchFuzzy     = { fg = "#83a598", bg = "NONE" },
+          CmpItemKindUnit           = { link = "Accent" },
+          CmpItemKindProperty       = { link = "Accent" },
+          CmpItemKindKeyword        = { link = "Accent" },
+          CmpItemKindMethod         = { link = "Accent" },
+          CmpItemKindFunction       = { link = "Accent" },
+          CmpItemKindText           = { link = "Accent" },
+          CmpItemKindInterface      = { link = "Accent" },
+          CmpItemKindVariable       = { link = "Accent" },
+          CmpItemKindField          = { link = "Accent" },
+          CmpItemKindSnippet        = { link = "Accent" },
           CmpItemAbbrDeprecated     = { bg = 'NONE', strikethrough = true, fg = '#3c3836' },
-          cmpItemKIndEnum           = { bg = 'NONE', fg = '#f2e5bc' },
-          cmpItemKIndStruct         = { bg = 'NONE', fg = '#f2e5bc' },
-          cmpItemKIndClass          = { bg = 'NONE', fg = '#f2e5bc' },
+          cmpItemKIndEnum           = { bg = 'NONE', fg = '#83a598' },
+          cmpItemKIndStruct         = { bg = 'NONE', fg = '#83a598' },
+          cmpItemKIndClass          = { bg = 'NONE', fg = '#83a598' },
 
           --ministatusline
           MiniStatuslineModeVisual  = { bg = "#3c3836", fg = "#928374" },
@@ -72,6 +81,14 @@ return {
           MiniStatuslineDevinfo     = { bg = "#202020", fg = "#928374" },
           MiniStatuslineFileinfo    = { bg = "#202020", fg = "#928374" },
           MiniStatuslineFilename    = { bg = "#202020", fg = "#928374" },
+
+          --minipick
+          MiniPickBorder            = { fg = "#7c6f64", bg = "#202020" },
+          MiniPickPrompt            = { fg = "#fbf1c7", bg = "#202020" },
+          MiniPickNormal            = { bg = "#202020" },
+          MiniPickBorderText        = { fg = "#7c6f64", bg = "#202020" },
+          MiniPickMatchRanges       = { fg = "#ffffff" },
+
         },
       })
       vim.cmd([[colorscheme gruvbox]])
@@ -104,20 +121,16 @@ return {
     event = { "BufReadPost", "BufNewFile" },
   },
   {
-    "nvim-treesitter/nvim-treesitter-refactor",
-    event = { "BufReadPost", "BufNewFile" },
-  },
-  {
     "iguanacucumber/magazine.nvim",
     name = "nvim-cmp",
     event = "InsertEnter",
     dependencies = {
+      "hrsh7th/cmp-nvim-lsp-signature-help",
       "mtoohey31/cmp-fish",
       "amarakon/nvim-cmp-buffer-lines",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
+      "iguanacucumber/mag-nvim-lsp",
+      "iguanacucumber/mag-buffer",
+      "FelipeLema/cmp-async-path",
       "saadparwaiz1/cmp_luasnip",
       {
         "L3MON4D3/LuaSnip",
@@ -140,11 +153,9 @@ return {
     end,
   },
   {
-    "echasnovski/mini.nvim",
-    event = "VeryLazy",
-    config = function()
-      return require("plugin.plugin_opts.mini")
-    end
+    "echasnovski/mini.splitjoin",
+    keys = { "<leader>m" },
+    config = function() require("mini.splitjoin").setup({ mappings = { toggle = "<leader>m" } }) end
   },
   {
     "norcalli/nvim-colorizer.lua",

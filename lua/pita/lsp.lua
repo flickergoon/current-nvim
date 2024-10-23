@@ -14,8 +14,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     require("clangd_extensions.inlay_hints").setup_autocmd()
     require("clangd_extensions.inlay_hints").set_inlay_hints()
-    map("gr", vim.lsp.buf.references, "[G]oto [D]efinition")
-    map("gd", vim.lsp.buf.definition, "[G]oto [R]eferences")
+    map("gr", vim.lsp.buf.references, "[G]oto [R]eferences ")
+    map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
     map("<leader>bf", vim.lsp.buf.format, "[F]ormat [B]uffer")
 
 
@@ -49,12 +49,28 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end,
       })
     end
-    if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-      map("<leader>th", function()
-        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-      end, "[T]oggle Inlay [H]ints")
-    end
   end,
+})
+
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
+})
+local signs = { Error = "E ", Warn = "W ", Hint = "H ", Info = "i " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl })
+end
+vim.diagnostic.config({
+  virtual_text = {
+    source = "always", -- Or "if_many"
+  },
+  float = {
+    source = "always", -- Or "if_many"
+  },
 })
 
 local lspconfig = require("lspconfig")
@@ -69,20 +85,20 @@ lspconfig.lua_ls.setup({
   }
 })
 lspconfig.clangd.setup({
- cmd = {
-     "clangd",
-     "--background-index",
-     "-j=12",
-     "--query-driver=/usr/bin/**/clang-*,/bin/clang,/bin/clang++,/usr/bin/gcc,/usr/bin/g++",
-     "--clang-tidy",
-     "--clang-tidy-checks=*",
-     "--all-scopes-completion",
-     "--cross-file-rename",
-     "--completion-style=detailed",
-     "--header-insertion-decorators",
-     "--header-insertion=iwyu",
-     "--pch-storage=memory",
-   }
+  cmd = {
+    "clangd",
+    "--background-index",
+    "-j=12",
+    "--query-driver=/usr/bin/**/clang-*,/bin/clang,/bin/clang++,/usr/bin/gcc,/usr/bin/g++",
+    "--clang-tidy",
+    "--clang-tidy-checks=*",
+    "--all-scopes-completion",
+    "--cross-file-rename",
+    "--completion-style=detailed",
+    "--header-insertion-decorators",
+    "--header-insertion=iwyu",
+    "--pch-storage=memory",
+  }
 })
 lspconfig.csharp_ls.setup({})
 lspconfig.gopls.setup({})

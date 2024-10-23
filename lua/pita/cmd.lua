@@ -119,14 +119,16 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
   callback = function()
-    vim.cmd("hi Normal guibg=NONE")
-    vim.cmd("hi SignColumn guibg=NONE")
+    vim.o.cursorline = true
+    vim.o.cursorlineopt = "both"
   end
 })
-vim.api.nvim_create_autocmd("BufReadPost", {
+
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPre', 'FileReadPre', 'StdinReadPre',
+  'VimResized', 'TermOpen', 'CursorMoved', 'InsertEnter' }, {
   callback = function()
-    vim.cmd("set cursorline")
+    vim.cmd("set colorcolumn=80")
   end
 })

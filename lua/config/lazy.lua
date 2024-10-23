@@ -23,7 +23,6 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local lazy = require("config.lazy_opts")
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -35,6 +34,23 @@ require("lazy").setup({
       lazy = "Lazy | ",
       loaded = "loaded | ",
       not_loaded = "Not loaded | ",
+      cmd = "",
+      config = "",
+      event = "",
+      init = "",
+      import = "",
+      keys = "",
+      plugin = "",
+      runtime = "",
+      source = "",
+      start = "",
+      task = "",
+      list = {
+        "■",
+        ">",
+        "│",
+        "─",
+      },
     },
   },
 

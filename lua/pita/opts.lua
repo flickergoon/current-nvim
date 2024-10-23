@@ -18,7 +18,6 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.signcolumn = "yes"
 opt.updatetime = 50
-opt.colorcolumn = "80"
 opt.timeoutlen = 300
 opt.splitright = true
 opt.splitbelow = true
@@ -30,7 +29,8 @@ opt.incsearch = true
 opt.relativenumber = true
 opt.number = true
 opt.mouse = "a"
-opt.showmode = false
+opt.showmode = true
+opt.ls=0
 opt.fillchars = { eob = " " }
 
 
@@ -39,9 +39,7 @@ opt.fillchars = { eob = " " }
 o.showtabline = 0
 o.expandtab = true
 o.termguicolors = true
-o.cursorline = true
-o.cursorlineopt = "both"
-o.pumblend  = 10
+o.pumblend  = 0
 o.pumheight = 15
 o.winblend  = 0
 

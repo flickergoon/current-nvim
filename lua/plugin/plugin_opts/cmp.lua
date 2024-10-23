@@ -1,4 +1,3 @@
-
 vim.api.nvim_command('highlight CmpItemMenuBuffer guifg=#504945')
 vim.api.nvim_command('highlight CmpItemMenuNvimLsp guifg=#504945')
 vim.api.nvim_command('highlight CmpItemMenuLuasnip guifg=#504945')
@@ -58,8 +57,8 @@ cmp.setup({
     { name = "luasnip" },
     { name = 'luasnip_choice' },
     { name = "nvim_lsp" },
-    { name = 'fish' },
     { name = "buffer" },
+    { name = 'fish' },
   }),
 
   formatting = {

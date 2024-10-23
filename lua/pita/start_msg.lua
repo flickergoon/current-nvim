@@ -1,3 +1,4 @@
+vim.api.nvim_command('highlight LogoNormal guifg=#83a598')
 --[[
 i took it from
 https://github.com/Bekaboo/nvim
@@ -19,12 +20,14 @@ local function should_show_intro()
 end
 
 local function create_intro_message()
-  local logo = 'N E O V I M'
+  local logo = 'Pita:'
 
   ---Lines of text and highlight groups to display as intro message
   local lines = {
-    { text = string.format('%s', logo),         hl = 'Normal' },
-    { text = string.format('Text Editor'), hl = 'NonText' },
+    { text = string.format('%s', logo),    hl = 'LogoNormal' },
+    { text = string.format('¯¯¯¯¯'), hl = 'NonText' },
+    { text = string.format('"it has text in it"'), hl = 'NonText' },
+
   }
 
   -- Create the scratch buffer to display the intro message
