@@ -27,7 +27,6 @@ map('t', '<Esc>', [[<C-\><C-n>]])
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '>-2<CR>gv=gv", { silent = true })
 map("n", "<C-d>", "zz")
-map("n", "<C-f>", ":<C-f>")
 map("n", "<C-c>", ":cclose<CR>")
 -- Copy to system clipboard
 vim.keymap.set('v', 'gy', '"+y', { noremap = true, silent = true })

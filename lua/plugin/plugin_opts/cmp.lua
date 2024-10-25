@@ -21,7 +21,8 @@ cmp.setup({
       scrollbar = false
     },
     documentation = {
-      winhighlight = "Normal:CmpNormal",
+      border = "rounded",
+      winhighlight = "Normal:CmpDocs,FloatBorder:Accent",
       scrollbar = false,
     }
   },

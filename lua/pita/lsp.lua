@@ -98,8 +98,27 @@ lspconfig.clangd.setup({
     "--header-insertion-decorators",
     "--header-insertion=iwyu",
     "--pch-storage=memory",
-  }
-})
+  },
+ })
 lspconfig.csharp_ls.setup({})
 lspconfig.gopls.setup({})
 lspconfig.hls.setup({})
+lspconfig.nixd.setup({})
+
+
+
+--formating
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'nix',
+  callback = function()
+    vim.keymap.set("n", "<C-f>", "<CMD>silent !nixfmt %<CR>", { silent = true })
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'lua',
+  callback = function()
+    vim.keymap.set("n", "<C-f>", "<CMD>w!<CR><CMD>silent !stylua %<CR>", { silent = true })
+  end,
+})
