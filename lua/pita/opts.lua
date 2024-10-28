@@ -40,7 +40,7 @@ o.showtabline = 0
 o.expandtab = true
 o.termguicolors = true
 o.pumblend  = 0
-o.pumheight = 15
+o.pumheight = 30
 o.winblend  = 0
 
 

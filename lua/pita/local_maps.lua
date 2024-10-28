@@ -11,7 +11,6 @@ map('t', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('t', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 map('t', '<Esc>', [[<C-\><C-n>]])
 
-
 --mini stuff
 -- map("n", "<leader>o", "<cmd>Pick grep_live<CR>", { silent = true, desc = "Grep Live" })
 -- map("n", "<leader>bb", "<cmd>Pick buffers<CR>", { silent = true, desc = "Buffer Buffers" })

@@ -99,7 +99,7 @@ lspconfig.clangd.setup({
     "--header-insertion=iwyu",
     "--pch-storage=memory",
   },
- })
+})
 lspconfig.csharp_ls.setup({})
 lspconfig.gopls.setup({})
 lspconfig.hls.setup({})
@@ -116,9 +116,3 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'lua',
-  callback = function()
-    vim.keymap.set("n", "<C-f>", "<CMD>w!<CR><CMD>silent !stylua %<CR>", { silent = true })
-  end,
-})
