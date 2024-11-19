@@ -1,19 +1,14 @@
 return {
   {
-    "nvim-lua/plenary.nvim",
-    "MunifTanjim/nui.nvim",
-  },
-  {
     "ellisonleao/gruvbox.nvim",
-    event = "VimEnter",
+    event = "VeryLazy",
     priority = 1000,
     config = function()
       require("gruvbox").setup({
         contrast = "hard",
         overrides = {
 
-          --custom stuff
-          Accent = { bg = "NONE", fg = "#83a598" },
+          --not plugin related
           --[[
           --┌────────────────────────────────────────────────────┐
           --│ some accent colors i like to use as my accent color│
@@ -31,9 +26,18 @@ return {
           --#689d6a aqua
           --#7c6f64 gray
           --]]
+
+          Accent                    = { bg = "NONE", fg = "#83a598" },
+          AccenButBg                = { bg = "#83a598", fg = "#fbf1c7" },
+
+          --Pmenu
+          PmenuSel                  = { link = "AccenButBg" },
+
           --vim stuff
           ModeMsg                   = { fg = "#7c6f64" },
           NormalFloat               = { bg = "#1E2021" },
+          Visual                    = { bg = "#32302f" },
+          ColorColumn               = { link = "Accent" },
 
           --lsp
           DiagnosticSignHint        = { link = "DiagnosticHint" },
@@ -69,12 +73,12 @@ return {
           netrwDir                  = { fg = "#928374", gui = bold },
           netrwPlain                = { fg = "#d5c4a1" },
 
-          --cmp
-          CmpNormal                 = { bg = "#202020" },
-          CmpDocs                   = { bg = "bg" },
+          --cmps
+          CmpNormal                 = { bg = "#242424" },
+          CmpDocs                   = { bg = "#242424" },
           CmpItemAbbr               = { fg = "#d5c4a1" },
           CmpItemAbbrMatch          = { link = "Accent" },
-          CmpItemAbbrMatchFuzzy     = { fg = "#83a598", bg = "NONE" },
+          CmpItemAbbrMatchFuzzy     = { link = "Accent" },
           CmpItemKindUnit           = { link = "Accent" },
           CmpItemKindProperty       = { link = "Accent" },
           CmpItemKindKeyword        = { link = "Accent" },
@@ -86,9 +90,10 @@ return {
           CmpItemKindField          = { link = "Accent" },
           CmpItemKindSnippet        = { link = "Accent" },
           CmpItemAbbrDeprecated     = { bg = "NONE", strikethrough = true, fg = "#3c3836" },
-          cmpItemKIndEnum           = { link = "Accent" },
-          cmpItemKIndStruct         = { link = "Accent" },
-          cmpItemKIndClass          = { link = "Accent" },
+          cmpItemKindEnum           = { link = "Accent" },
+          cmpItemKindStruct         = { link = "Accent" },
+          cmpItemKindClass          = { link = "Accent" },
+          cmpItemKindConstant       = { link = "Accent" },
 
           --ministatusline
           MiniStatuslineModeVisual  = { bg = "#3c3836", fg = "#928374" },
@@ -141,10 +146,6 @@ return {
     end,
   },
   {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    event = { "BufReadPost", "BufNewFile" },
-  },
-  {
     "iguanacucumber/magazine.nvim",
     name = "nvim-cmp",
     event = "InsertEnter",
@@ -155,17 +156,9 @@ return {
       { "lukas-reineke/cmp-under-comparator" },
       {
         "L3MON4D3/LuaSnip",
-        dependencies = "rafamadriz/friendly-snippets",
+        dependencies = { "rafamadriz/friendly-snippets", "saadparwaiz1/cmp_luasnip" },
         config = function()
           return require("luasnip.loaders.from_vscode").lazy_load()
-        end,
-      },
-      {
-        "doxnit/cmp-luasnip-choice",
-        config = function()
-          require("cmp_luasnip_choice").setup({
-            auto_open = true,
-          })
         end,
       },
     },

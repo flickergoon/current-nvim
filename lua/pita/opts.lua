@@ -30,7 +30,7 @@ opt.relativenumber = true
 opt.number = true
 opt.mouse = "a"
 opt.showmode = true
-opt.ls=0
+vim.opt.ls=0
 opt.fillchars = { eob = " " }
 
 
@@ -40,7 +40,7 @@ o.showtabline = 0
 o.expandtab = true
 o.termguicolors = true
 o.pumblend  = 0
-o.pumheight = 30
+o.pumheight = 23
 o.winblend  = 0
 
 
@@ -51,10 +51,6 @@ o.winblend  = 0
 
 
 --Gs
-g.have_nerd_font = false
-g.codeium_manual = true
-g.codeium_no_map_tab = true
-g.codeium_enabled = true
 g.have_nerd_font = false
 g.cursorword_enabled = false
 g.netrw_browse_split = 0

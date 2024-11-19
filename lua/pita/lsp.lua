@@ -100,10 +100,21 @@ lspconfig.clangd.setup({
     "--pch-storage=memory",
   },
 })
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities()
+--
+-- lspconfig.csharp_ls.setup({ capabilities = capabilities })
+-- lspconfig.gopls.setup({ capabilities = capabilities })
+-- lspconfig.hls.setup({ capabilities = capabilities })
+-- lspconfig.nixd.setup({ capabilities = capabilities })
+-- lspconfig.zls.setup({ capabilities = capabilities })
+
+
 lspconfig.csharp_ls.setup({})
 lspconfig.gopls.setup({})
 lspconfig.hls.setup({})
 lspconfig.nixd.setup({})
+lspconfig.zls.setup({})
+
 
 
 
@@ -115,4 +126,3 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.keymap.set("n", "<C-f>", "<CMD>silent !nixfmt %<CR>", { silent = true })
   end,
 })
-

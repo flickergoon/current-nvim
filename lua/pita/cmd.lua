@@ -63,14 +63,26 @@ vim.api.nvim_create_user_command("LintInfo", function()
   vim.api.nvim_echo({ { info, "Normal" } }, false, {})
 end, {})
 
---just stright uo stole this from kickstart.nvim
+--just stright up stole this from kickstart.nvim
+-- vim.api.nvim_create_autocmd("TextYankPost", {
+--   desc = "Highlight when yanking (copying) text",
+--   group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+--   callback = function()
+--     vim.highlight.on_yank()
+--   end,
+-- })
+
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking (copying) text",
   group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
   callback = function()
-    vim.highlight.on_yank()
+    vim.highlight.on_yank({
+      higroup = "Accent",  -- Replace with your desired highlight group
+      timeout = 200
+    })
   end,
 })
+
 -- vim.api.nvim_create_autocmd("BufWritePre", {
 -- 	pattern = "*",
 -- 	callback = function(args)
@@ -116,3 +128,11 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPre', 'FileReadPre', 'StdinR
     vim.cmd("set colorcolumn=80")
   end
 })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "zig",
+  callback = function()
+    print("Zig file detected")
+    -- You can add more debug information here
+  end
+})
+

@@ -11,7 +11,6 @@ vim.api.nvim_command("highlight CmpItemMenuFish guifg=#504945")
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 local WIDE_HEIGHT = 40
-local compare = require('cmp.config.compare')
 local types = require('cmp.types')
 
 
@@ -33,15 +32,17 @@ cmp.setup({
       scrolloff = 0,
       col_offset = 0,
       side_padding = 1,
-      scrollbar = true,
+      scrollbar = false,
     },
     documentation = {
       max_height = math.floor(WIDE_HEIGHT * (WIDE_HEIGHT / vim.o.lines)),
       max_width = math.floor((WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))),
-      border = { '', '', '', ' ', '', '', '', ' ' },
-      winhighlight = 'Normal:CmpNormal',
+      border = "single",
+   -- border = { '▛', '▀', '▜', '▐', '▟', '▄', '▙', '▌' },
+      winhighlight = 'Normal:CmpDocs,FloatBorder:Accent',
       winblend = vim.o.pumblend,
       col_offset = 0,
+      scrollbar = false,
     },
   },
 
@@ -78,11 +79,10 @@ cmp.setup({
 
 
   sources = cmp.config.sources({
-    { name = "luasnip" },
-    { name = "luasnip_choice" },
+    { name = 'luasnip' },
     { name = "nvim_lsp" },
+    { name = 'nvim_lua' },
     { name = "buffer" },
-    { name = "fish" },
   }),
 
 
