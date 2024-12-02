@@ -29,10 +29,7 @@ opt.incsearch = true
 opt.relativenumber = true
 opt.number = true
 opt.mouse = "a"
-opt.showmode = true
-vim.opt.ls=0
 opt.fillchars = { eob = " " }
-
 
 
 --Os
@@ -42,7 +39,6 @@ o.termguicolors = true
 o.pumblend  = 0
 o.pumheight = 23
 o.winblend  = 0
-
 
 
 

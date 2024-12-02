@@ -12,6 +12,34 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 local WIDE_HEIGHT = 40
 local types = require('cmp.types')
+local kind_icons = {
+  Text = "",
+  Method = "",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "",
+  Interface = "",
+  Module = "",
+  Property = "",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = "",
+}
+
 
 
 
@@ -37,9 +65,9 @@ cmp.setup({
     documentation = {
       max_height = math.floor(WIDE_HEIGHT * (WIDE_HEIGHT / vim.o.lines)),
       max_width = math.floor((WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))),
-      border = "single",
+      border = "none",
    -- border = { '▛', '▀', '▜', '▐', '▟', '▄', '▙', '▌' },
-      winhighlight = 'Normal:CmpDocs,FloatBorder:Accent',
+      winhighlight = 'Normal:CmpDocs',
       winblend = vim.o.pumblend,
       col_offset = 0,
       scrollbar = false,
@@ -82,7 +110,7 @@ cmp.setup({
     { name = 'luasnip' },
     { name = "nvim_lsp" },
     { name = 'nvim_lua' },
-    { name = "buffer" },
+    { name = "buffer", keyword_length = 2},
   }),
 
 
@@ -91,7 +119,7 @@ cmp.setup({
     fields = { "menu", "abbr", "kind" },
     format = function(entry, vim_item)
       -- Kind icons
-
+      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
       -- Source
       local menu_text, hl_group
       if entry.source.name == "buffer" then
@@ -204,18 +232,16 @@ cmp.setup({
   },
 
 
-
   view = {
     entries = {
       name = 'custom',
       selection_order = 'top_down',
-      follow_cursor = false,
+      follow_cursor = true,
     },
     docs = {
       auto_open = true,
     },
   },
-
 
 
   confirmation = {

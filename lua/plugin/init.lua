@@ -27,55 +27,67 @@ return {
           --#7c6f64 gray
           --]]
 
-          Accent                    = { bg = "NONE", fg = "#83a598" },
-          AccenButBg                = { bg = "#83a598", fg = "#fbf1c7" },
+          Accent     = { bg = "NONE", fg = "#83a598" },
+          AccenButBg = { bg = "#83a598", fg = "#fbf1c7" },
 
+
+          --statusline stuff
+          Scrollbar           = { bg = "#1d2021", fg = "#83a598" },
+          StatusLine          = { fg = "#1d2021" },
           --Pmenu
-          PmenuSel                  = { link = "AccenButBg" },
-
+          PmenuSel            = { link = "AccenButBg" },
           --vim stuff
-          ModeMsg                   = { fg = "#7c6f64" },
-          NormalFloat               = { bg = "#1E2021" },
-          Visual                    = { bg = "#32302f" },
-          ColorColumn               = { link = "Accent" },
+          ModeMsg             = { fg = "#7c6f64" },
+          NormalFloat         = { bg = "#1E2021" },
+          Visual              = { bg = "#32302f" },
+          ColorColumn         = { link = "Accent" },
 
           --lsp
-          DiagnosticSignHint        = { link = "DiagnosticHint" },
-          DiagnosticSignWarn        = { link = "DiagnosticWarn" },
-          DiagnosticSignInfo        = { link = "DiagnosticInfo" },
-          DiagnosticSignError       = { link = "DiagnosticError" },
+          DiagnosticSignHint  = { link = "DiagnosticHint" },
+          DiagnosticSignWarn  = { link = "DiagnosticWarn" },
+          DiagnosticSignInfo  = { link = "DiagnosticInfo" },
+          DiagnosticSignError = { link = "DiagnosticError" },
 
           --cursorline
-          CursorLineNr              = { bg = "#1d2021", fg = "#bdae93" },
-          CursorLine                = { bg = "#32302f" },
-          SignColumn                = { bg = "bg" },
+          CursorLineNr        = { bg = "#1d2021", fg = "#bdae93" },
+          CursorLine          = { bg = "#32302f" },
+          SignColumn          = { bg = "bg" },
 
           --lazy
-          LazyButton                = { bg = "#202020" },
-          LazyNormal                = { bg = "#202020" },
-          LazyH1                    = { bg = "#3c3836", fg = "#928374" },
-          LazySpecial               = { link = "Accent" },
-          LazyReasonEvent           = { fg = "#3c3836" },
-          LazyReasonSource          = { fg = "#3c3836" },
-          LazyReasonRequire         = { fg = "#3c3836" },
-          LazyReasonPlugin          = { fg = "#3c3836" },
-          LazyReasonCmd             = { fg = "#fbf1c7" },
-          LazyReasonRuntime         = { fg = "#3c3836" },
-          LazyReasonStart           = { fg = "#3c3836" },
-          LazyReasonImport          = { fg = "#3c3836" },
-          LazyProp                  = { fg = "#fbf1c7" },
-          LazyCommit                = { fg = "#d5c4a1" },
-          LazyCommitType            = { fg = "#32302f" },
-          LazyDimmed                = { fg = "#32302f" },
+          LazyButton          = { bg = "#202020" },
+          LazyNormal          = { bg = "#202020" },
+          LazyH1              = { bg = "#3c3836", fg = "#928374" },
+          LazySpecial         = { link = "Accent" },
+          LazyReasonEvent     = { fg = "#3c3836" },
+          LazyReasonSource    = { fg = "#3c3836" },
+          LazyReasonRequire   = { fg = "#3c3836" },
+          LazyReasonPlugin    = { fg = "#3c3836" },
+          LazyReasonCmd       = { fg = "#fbf1c7" },
+          LazyReasonRuntime   = { fg = "#3c3836" },
+          LazyReasonStart     = { fg = "#3c3836" },
+          LazyReasonImport    = { fg = "#3c3836" },
+          LazyProp            = { fg = "#fbf1c7" },
+          LazyCommit          = { fg = "#d5c4a1" },
+          LazyCommitType      = { fg = "#32302f" },
+          LazyDimmed          = { fg = "#32302f" },
 
           --netrw
-          netrwClassify             = { fg = "#7c6f64" },
-          netrwDir                  = { fg = "#928374", gui = bold },
-          netrwPlain                = { fg = "#d5c4a1" },
+          netrwClassify       = { fg = "#7c6f64" },
+          netrwDir            = { fg = "#928374", gui = bold },
+          netrwPlain          = { fg = "#d5c4a1" },
+
+          --blink.cmp
+
+          BlinkCmpMenu        = { link = "CmpNormal" },
+          BlinkCmpLabel       = { link = "CmpNormal" },
+          BlinkCmpLabelMatch  = { link = "Accent" },
+
+
+
 
           --cmps
           CmpNormal                 = { bg = "#242424" },
-          CmpDocs                   = { bg = "#242424" },
+          CmpDocs                   = { bg = "#282828" },
           CmpItemAbbr               = { fg = "#d5c4a1" },
           CmpItemAbbrMatch          = { link = "Accent" },
           CmpItemAbbrMatchFuzzy     = { link = "Accent" },
@@ -148,7 +160,6 @@ return {
   {
     "iguanacucumber/magazine.nvim",
     name = "nvim-cmp",
-    event = "InsertEnter",
     dependencies = {
       { "iguanacucumber/mag-nvim-lsp",       name = "cmp-nvim-lsp", opts = {} },
       { "iguanacucumber/mag-nvim-lua",       name = "cmp-nvim-lua" },
