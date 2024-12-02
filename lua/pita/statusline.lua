@@ -16,7 +16,7 @@ end
 vim.o.statusline = table.concat({
   '%c  ',                           -- Line, column, and percentage
   '%<',                             -- Truncation point
-  '[%f]',                             -- File name
+  '[%f]',                           -- File name
   '%h%m%r%=',                       -- File status flags and align right
   '%#ScrollBar#',                   -- Start ScrollBar highlight
   '%{v:lua.scrollbar_indicator()}', -- Scrollbar indicator

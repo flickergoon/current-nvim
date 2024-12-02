@@ -34,6 +34,11 @@ return {
           --statusline stuff
           Scrollbar           = { bg = "#1d2021", fg = "#83a598" },
           StatusLine          = { fg = "#1d2021" },
+          ModeNormal          = { link = "AccenButBg" },
+          ModeInsert          = { bg = "#b8bb26" },
+          ModeVisual          = { bg = "#fb4934" },
+          ModeReplace         = { bg = "#fe8019" },
+          ModeCommand         = { bg = "#b16286" },
           --Pmenu
           PmenuSel            = { link = "AccenButBg" },
           --vim stuff
