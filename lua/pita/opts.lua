@@ -29,7 +29,10 @@ opt.incsearch = true
 opt.relativenumber = true
 opt.number = true
 opt.mouse = "a"
+opt.ls=3
+opt.cmdheight=1
 opt.fillchars = { eob = " " }
+
 
 
 --Os

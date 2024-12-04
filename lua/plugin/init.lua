@@ -32,60 +32,66 @@ return {
 
 
           --statusline stuff
-          Scrollbar           = { bg = "#1d2021", fg = "#83a598" },
-          StatusLine          = { fg = "#1d2021" },
-          ModeNormal          = { link = "AccenButBg" },
-          ModeInsert          = { bg = "#b8bb26" },
-          ModeVisual          = { bg = "#fb4934" },
-          ModeReplace         = { bg = "#fe8019" },
-          ModeCommand         = { bg = "#b16286" },
+          Scrollbar            = { bg = "#32302f", fg = "#665c54" },
+          StatusLine           = { fg = "#32302f", bg = "#fbf1c7" },
+          ModeNormal           = { fg = "#83a598", bg = "#1d2021" },
+          ModeInsert           = { fg = "#b8bb26", bg = "#1d2021" },
+          ModeVisual           = { fg = "#fe8019", bg = "#1d2021" },
+          ModeReplace          = { fg = "#fb4934", bg = "#1d2021" },
+          ModeCommand          = { fg = "#b16286", bg = "#1d2021" },
+          ModeTerminal         = { fg = "#b8bb26", bg = "#1d2021" },
+          StatusLine_Column    = { bg = "#fabd2f", fg = "#1d2021" },
+          StatusLine_FileName  = { bg = "#1d2021", fg = "#a89984" },
+          StatusLine_WordChars = { bg = "#1d2021", fg = "#ebdbb2" },
+          StatusLine_GitStatus = { fg = "#665c54", bg = "#1d2021" },
           --Pmenu
-          PmenuSel            = { link = "AccenButBg" },
+          PmenuSel             = { link = "AccenButBg" },
           --vim stuff
-          ModeMsg             = { fg = "#7c6f64" },
-          NormalFloat         = { bg = "#1E2021" },
-          Visual              = { bg = "#32302f" },
-          ColorColumn         = { link = "Accent" },
+          ModeMsg              = { fg = "#7c6f64" },
+          NormalFloat          = { bg = "#1E2021" },
+          Visual               = { bg = "#32302f" },
+          ColorColumn          = { link = "Accent" },
 
           --lsp
-          DiagnosticSignHint  = { link = "DiagnosticHint" },
-          DiagnosticSignWarn  = { link = "DiagnosticWarn" },
-          DiagnosticSignInfo  = { link = "DiagnosticInfo" },
-          DiagnosticSignError = { link = "DiagnosticError" },
+          DiagnosticSignHint   = { link = "DiagnosticHint" },
+          DiagnosticSignWarn   = { link = "DiagnosticWarn" },
+          DiagnosticSignInfo   = { link = "DiagnosticInfo" },
+          DiagnosticSignError  = { link = "DiagnosticError" },
 
           --cursorline
-          CursorLineNr        = { bg = "#1d2021", fg = "#bdae93" },
-          CursorLine          = { bg = "#32302f" },
-          SignColumn          = { bg = "bg" },
+          CursorLineNr         = { bg = "#1d2021", fg = "#bdae93" },
+          CursorLine           = { bg = "#32302f" },
+          SignColumn           = { bg = "bg" },
 
           --lazy
-          LazyButton          = { bg = "#202020" },
-          LazyNormal          = { bg = "#202020" },
-          LazyH1              = { bg = "#3c3836", fg = "#928374" },
-          LazySpecial         = { link = "Accent" },
-          LazyReasonEvent     = { fg = "#3c3836" },
-          LazyReasonSource    = { fg = "#3c3836" },
-          LazyReasonRequire   = { fg = "#3c3836" },
-          LazyReasonPlugin    = { fg = "#3c3836" },
-          LazyReasonCmd       = { fg = "#fbf1c7" },
-          LazyReasonRuntime   = { fg = "#3c3836" },
-          LazyReasonStart     = { fg = "#3c3836" },
-          LazyReasonImport    = { fg = "#3c3836" },
-          LazyProp            = { fg = "#fbf1c7" },
-          LazyCommit          = { fg = "#d5c4a1" },
-          LazyCommitType      = { fg = "#32302f" },
-          LazyDimmed          = { fg = "#32302f" },
+          LazyButton           = { bg = "#32302f" },
+          LazyButtonActive     = { bg = "#202020" },
+          LazyNormal           = { bg = "#202020" },
+          LazyH1               = { bg = "#202020", fg = "#928374" },
+          LazySpecial          = { link = "Accent" },
+          LazyReasonEvent      = { fg = "#3c3836" },
+          LazyReasonSource     = { fg = "#3c3836" },
+          LazyReasonRequire    = { fg = "#3c3836" },
+          LazyReasonPlugin     = { fg = "#3c3836" },
+          LazyReasonCmd        = { fg = "#fbf1c7" },
+          LazyReasonRuntime    = { fg = "#3c3836" },
+          LazyReasonStart      = { fg = "#3c3836" },
+          LazyReasonImport     = { fg = "#3c3836" },
+          LazyProp             = { fg = "#fbf1c7" },
+          LazyCommit           = { fg = "#d5c4a1" },
+          LazyCommitType       = { fg = "#32302f" },
+          LazyDimmed           = { fg = "#32302f" },
 
           --netrw
-          netrwClassify       = { fg = "#7c6f64" },
-          netrwDir            = { fg = "#928374", gui = bold },
-          netrwPlain          = { fg = "#d5c4a1" },
+          netrwClassify        = { fg = "#7c6f64" },
+          netrwDir             = { fg = "#928374", gui = bold },
+          netrwPlain           = { fg = "#d5c4a1" },
 
           --blink.cmp
 
-          BlinkCmpMenu        = { link = "CmpNormal" },
-          BlinkCmpLabel       = { link = "CmpNormal" },
-          BlinkCmpLabelMatch  = { link = "Accent" },
+          BlinkCmpMenu         = { link = "CmpNormal" },
+          BlinkCmpLabel        = { link = "CmpNormal" },
+          BlinkCmpLabelMatch   = { link = "Accent" },
 
 
 
@@ -188,4 +194,12 @@ return {
     opts = {
     },
   },
+    {
+     dir =  "pita.statusline", -- This is just a placeholder; you don't need to specify a plugin here.
+      config = function()
+          require("pita.statusline") -- Load your status line configuration when needed.
+          vim.o.statusline = require("pita.statusline").set_statusline() -- Set the initial status line.
+      end,
+      event = "VeryLazy" -- Load when Neovim is idle or based on another event.
+  }
 }
