@@ -30,6 +30,8 @@ return {
           Accent     = { bg = "NONE", fg = "#83a598" },
           AccenButBg = { bg = "#83a598", fg = "#fbf1c7" },
 
+          --cmdline stuff
+          CmdLineNormal = {bg = "#32302f", fg = "#fbf1c7"},
 
           --statusline stuff
           Scrollbar            = { bg = "#32302f", fg = "#665c54" },
@@ -45,6 +47,7 @@ return {
           StatusLine_WordChars = { bg = "#1d2021", fg = "#ebdbb2" },
           StatusLine_GitStatus = { fg = "#665c54", bg = "#1d2021" },
           --Pmenu
+          Pmenu = {bg = "#202020"},
           PmenuSel             = { link = "AccenButBg" },
           --vim stuff
           ModeMsg              = { fg = "#7c6f64" },
@@ -59,8 +62,8 @@ return {
           DiagnosticSignError  = { link = "DiagnosticError" },
 
           --cursorline
-          CursorLineNr         = { bg = "#1d2021", fg = "#bdae93" },
-          CursorLine           = { bg = "#32302f" },
+          CursorLineNr         = { bg = "#282828", fg = "#bdae93" },
+          CursorLine           = { bg = "#282828" },
           SignColumn           = { bg = "bg" },
 
           --lazy
@@ -194,12 +197,4 @@ return {
     opts = {
     },
   },
-    {
-     dir =  "pita.statusline", -- This is just a placeholder; you don't need to specify a plugin here.
-      config = function()
-          require("pita.statusline") -- Load your status line configuration when needed.
-          vim.o.statusline = require("pita.statusline").set_statusline() -- Set the initial status line.
-      end,
-      event = "VeryLazy" -- Load when Neovim is idle or based on another event.
-  }
 }

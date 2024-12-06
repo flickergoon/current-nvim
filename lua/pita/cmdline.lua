@@ -1,5 +1,8 @@
+
+
 local api = vim.api
 local buf, win
+
 
 function create_float()
   buf = api.nvim_create_buf(false, true)
@@ -22,6 +25,7 @@ function create_float()
   }
 
   win = api.nvim_open_win(buf, true, opts)
+  api.nvim_win_set_option(win, 'winhighlight', 'NormalFloat:CmdLineNormal,FloatBorder:Accent')
   api.nvim_win_set_option(win, 'winblend', 0)
 
   api.nvim_buf_set_option(buf, 'buftype', 'prompt')
@@ -29,15 +33,14 @@ function create_float()
 
   vim.fn.prompt_setprompt(buf, ':')
 
-
-
   api.nvim_set_option('winhighlight', 'Normal:FloatCmdline')
-
-
   vim.fn.prompt_setcallback(buf, execute_command)
 
+  -- Set up tab completion
+  api.nvim_buf_set_keymap(buf, 'i', '<Tab>', '<C-x><C-v>', { noremap = true, silent = true })
+  api.nvim_buf_set_keymap(buf, 'i', '<S-Tab>', '<C-p>', { noremap = true, silent = true })
+
   -- Set <C-c> to close the floating command line
-  api.nvim_buf_set_keymap(buf, 'i', '<C-c>', '<cmd>lua close_floating_cmdline()<CR>', { noremap = true, silent = true })
 end
 
 function execute_command(text)
