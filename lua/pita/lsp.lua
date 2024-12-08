@@ -54,16 +54,26 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.diagnostic.config({
   virtual_text = true,
-  signs = true,
   underline = true,
   update_in_insert = false,
   severity_sort = false,
+ signs = {
+
+    text = {
+      [vim.diagnostic.severity.ERROR] = 'E',
+      [vim.diagnostic.severity.WARN] = 'W',
+      [vim.diagnostic.severity.HINT] = 'H',
+      [vim.diagnostic.severity.INFO] = 'I',
+    },
+
+  },
 })
-local signs = { Error = "E ", Warn = "W ", Hint = "H ", Info = "i " }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl })
-end
+-- local signs = { Error = "E ", Warn = "W ", Hint = "H ", Info = "i " }
+-- for type, icon in pairs(signs) do
+--   local hl = "DiagnosticSign" .. type
+--   vim.fn.sign_define(hl, { text = icon, texthl = hl })
+-- end
+
 vim.diagnostic.config({
   virtual_text = {
     source = "always", -- Or "if_many"

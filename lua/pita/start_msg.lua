@@ -19,13 +19,13 @@ local function should_show_intro()
 end
 
 local function create_intro_message()
-  local logo = 'Neovim:'
+  local logo = 'Text:'
 
   ---Lines of text and highlight groups to display as intro message
   local lines = {
     { text = string.format('%s', logo),    hl = 'LogoNormal' },
     { text = string.format('¯¯¯¯¯'), hl = 'NonText' },
-    { text = string.format('"it has text in it"'), hl = 'NonText' },
+    { text = string.format('"text text text-text text text text..."'), hl = 'NonText' },
 
   }
 

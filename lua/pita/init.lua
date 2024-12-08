@@ -1,6 +1,32 @@
 require("pita.opts")
-require("pita.cmd")
+require("pita.auto_cmd")
 require("pita.local_maps")
 require("pita.lsp")
 require("pita.start_msg")
-vim.o.statusline = require("pita.statusline").set_statusline()
+require('pita.statusline').setup({
+  padding = 6,
+  separator = {
+    enabled = false,
+    separator = "|",
+  },
+  git = {
+    enabled = true,
+    icon = "|\\",
+  },
+  scroll = {
+    enabled = true,
+  },
+  words = {
+    enabled = true,
+  },
+  mode = {
+    enabled = true,
+  },
+  filename = {
+    enabled = true,
+    path_type = "relative",
+  },
+})
+
+
+require("pita.cmdline")

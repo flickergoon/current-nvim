@@ -135,4 +135,3 @@ vim.api.nvim_create_autocmd("FileType", {
     -- You can add more debug information here
   end
 })
-

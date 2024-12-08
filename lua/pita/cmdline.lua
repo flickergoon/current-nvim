@@ -11,8 +11,8 @@ function create_float()
 
   local win_height = 1
   local win_width = width - 4
-  local row = 0
-  local col = 110
+  local row = 34
+  local col = 1000
 
   local opts = {
     style = "minimal",

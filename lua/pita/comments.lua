@@ -1,4 +1,4 @@
---statusline
+--tatusline
 --statusline
 --statusline
 --statusline

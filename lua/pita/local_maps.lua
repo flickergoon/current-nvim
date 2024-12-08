@@ -10,6 +10,7 @@ map('t', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 map('t', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('t', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 map('t', '<Esc>', [[<C-\><C-n>]])
+map('n', '<leader>nt', '<CMD>new<CR><CMD>terminal<CR><CMD>resize 12<CR>')
 
 --mini stuff
 -- map("n", "<leader>o", "<cmd>Pick grep_live<CR>", { silent = true, desc = "Grep Live" })
@@ -26,31 +27,16 @@ map('t', '<Esc>', [[<C-\><C-n>]])
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '>-2<CR>gv=gv", { silent = true })
 map("n", "<C-d>", "zz")
-map("n", "<C-c>", ":cclose<CR>")
 -- Copy to system clipboard
-vim.keymap.set('v', 'gy', '"+y', { noremap = true, silent = true })
-vim.keymap.set('n', 'gy', '"+yy', { noremap = true, silent = true })
+map('v', 'gy', '"+y', { noremap = true, silent = true })
+map('n', 'gy', '"+yy', { noremap = true, silent = true })
 
 
 
 map("n", "<leader>ex", "<cmd>Ex<CR>", { silent = true })
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "General Clear highlights" })
-map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP Diagnostic loclist" })
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
-vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = 0 })
-
-local function lsp_rename()
-  local curr_name = vim.fn.expand("<cword>")
-  local bufnr = vim.api.nvim_get_current_buf()
-
-  require('fzf-lua').fzf_exec({ curr_name }, {
-    prompt = "New name > ",
-    actions = {
-      ['default'] = function(selected)
-        local new_name = selected[1]
-        vim.lsp.buf.rename(new_name)
-      end
-    }
-  })
-end
+map("n", "<leader>ds", vim.diagnostic.setloclist)
+map("n", "<leader>gd", vim.lsp.buf.definition, { buffer = 0 })
+map("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = 0 })
+map("n", "<leader>rn", vim.lsp.buf.rename)
