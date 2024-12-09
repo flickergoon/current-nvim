@@ -32,6 +32,9 @@ opt.mouse = "a"
 opt.ls=3
 opt.cmdheight=1
 opt.fillchars = { eob = " " }
+opt.colorcolumn="80"
+opt.showmode = false
+
 
 
 

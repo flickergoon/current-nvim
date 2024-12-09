@@ -4,7 +4,7 @@ require("pita.local_maps")
 require("pita.lsp")
 require("pita.start_msg")
 require('pita.statusline').setup({
-  padding = 6,
+  padding = 32,
   separator = {
     enabled = false,
     separator = "|",
@@ -24,7 +24,7 @@ require('pita.statusline').setup({
   },
   filename = {
     enabled = true,
-    path_type = "relative",
+    path_type = "tail",
   },
 })
 

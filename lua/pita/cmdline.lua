@@ -1,5 +1,3 @@
-
-
 local api = vim.api
 local buf, win
 
@@ -26,6 +24,7 @@ function create_float()
 
   win = api.nvim_open_win(buf, true, opts)
   api.nvim_win_set_option(win, 'winhighlight', 'NormalFloat:CmdLineNormal,FloatBorder:Accent')
+  api.nvim_buf_set_name(buf, "UniqueFloatingCmdLineName")
   api.nvim_win_set_option(win, 'winblend', 0)
 
   api.nvim_buf_set_option(buf, 'buftype', 'prompt')

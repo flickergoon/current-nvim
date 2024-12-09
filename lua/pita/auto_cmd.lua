@@ -122,16 +122,3 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
   end
 })
 
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufReadPre', 'FileReadPre', 'StdinReadPre',
-  'VimResized', 'TermOpen', 'CursorMoved', 'InsertEnter' }, {
-  callback = function()
-    vim.cmd("set colorcolumn=80")
-  end
-})
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "zig",
-  callback = function()
-    print("Zig file detected")
-    -- You can add more debug information here
-  end
-})

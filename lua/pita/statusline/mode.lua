@@ -6,6 +6,7 @@ local M = {}
 function M.setup(user_config)
   config = vim.tbl_deep_extend("force", config, user_config or {})
 end
+
 function M.mode_indicator()
   local mode_map = {
     n = { 'NORMAL', 'ModeNormal' },
@@ -27,6 +28,11 @@ function M.mode_indicator()
   if api_mode.blocking then
     mode_info = { 'O-PENDING', 'ModeNormal' }
   end
+  local current_buf_name = vim.fn.expand("%:t")
+  if current_buf_name ==  "UniqueFloatingCmdLineName" then
+    mode_info = { 'COMMAND', 'ModeCommand' }
+  end
+
   return string.format(
     '%%#%s#%s%s%s%%#Normal#',
     mode_info[2],
@@ -35,4 +41,5 @@ function M.mode_indicator()
     ' '
   )
 end
+
 return M

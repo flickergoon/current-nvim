@@ -5,6 +5,10 @@ local mode = require("pita.statusline.mode")
 local filename = require("pita.statusline.filename")
 local separator = require("pita.statusline.separators")
 
+local function a(x)
+  return string.rep(" ", x)
+end
+
 local M = {}
 
 local config = {
@@ -44,10 +48,6 @@ function M.setup(user_config)
   separator.setup(config.separator)
 
   vim.o.statusline = '%!v:lua.require("pita.statusline").set_statusline()'
-end
-
-local function a(x)
-  return string.rep(" ", x)
 end
 
 function M.set_statusline()
@@ -122,7 +122,7 @@ end
 
 
   table.insert(components, '%#GruvboxBg0#')
-  table.insert(components, a(5))
+  table.insert(components, a(config.padding - 1))
 
   return table.concat(components, '')
 end
