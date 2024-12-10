@@ -3,7 +3,7 @@ local M = {}
 -- Default configuration
 local config = {
   enabled = true,
-  path_type = "relative", -- Default path type
+  path_type = "tail", -- Default path type
 }
 
 -- Function to set up the module with user configuration
@@ -38,7 +38,6 @@ function M.get_filename()
     if vim.fn.bufname(vim.fn.bufnr('#')) == '' then
       return '.'
     end
-    return vim.fn.fnamemodify(vim.fn.bufname(vim.fn.bufnr('#')), ':f')
   elseif filetype == 'qf' then
     return 'Quickfix List'
   else

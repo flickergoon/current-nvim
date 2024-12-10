@@ -29,12 +29,11 @@ opt.incsearch = true
 opt.relativenumber = true
 opt.number = true
 opt.mouse = "a"
-opt.ls=3
-opt.cmdheight=1
 opt.fillchars = { eob = " " }
 opt.colorcolumn="80"
 opt.showmode = false
-
+vim.o.laststatus = 2
+vim.o.cmdheight = 0
 
 
 

@@ -12,6 +12,7 @@ end
 local M = {}
 
 local config = {
+  statusline_height = 3,
   padding = 6,
   separator = {
     enabled = true,
@@ -63,18 +64,18 @@ function M.set_statusline()
   table.insert(components, '%#StatusLine# ')
 
   if config.separator.enabled then
-  table.insert(components, '%#StatusLine_Separatror#')
+    table.insert(components, '%#StatusLine_Separatror#')
     table.insert(components, separator.seps(config.separator))
-  table.insert(components, '%#StatusLine# ')
+    table.insert(components, '%#StatusLine# ')
   end
 
   table.insert(components, '  %c')
   table.insert(components, a(2))
 
   if config.separator.enabled then
-  table.insert(components, '%#StatusLine_Separatror#')
+    table.insert(components, '%#StatusLine_Separatror#')
     table.insert(components, separator.seps(config.separator))
-  table.insert(components, '%#StatusLine# ')
+    table.insert(components, '%#StatusLine# ')
   end
 
   if config.filename.enabled then
@@ -82,9 +83,9 @@ function M.set_statusline()
   end
 
   if config.separator.enabled then
-  table.insert(components, '%#StatusLine_Separatror#')
+    table.insert(components, '%#StatusLine_Separatror#')
     table.insert(components, separator.seps(config.separator))
-  table.insert(components, '%#StatusLine# ')
+    table.insert(components, '%#StatusLine# ')
   end
 
   table.insert(components, a(1))
@@ -98,9 +99,9 @@ function M.set_statusline()
   end
 
   if config.separator.enabled then
-  table.insert(components, '%#StatusLine_Separatror#')
+    table.insert(components, '%#StatusLine_Separatror#')
     table.insert(components, separator.seps(config.separator))
-  table.insert(components, '%#StatusLine# ')
+    table.insert(components, '%#StatusLine# ')
   end
 
   table.insert(components, a(1))
@@ -111,14 +112,14 @@ function M.set_statusline()
   end
 
 
-if config.git.enabled then
-  table.insert(components, '%#GruvboxBg0#')
-  table.insert(components, a(2))
-  table.insert(components, '%#StatusLine_GitStatus#')
-  table.insert(components, a(1))
-  table.insert(components, git.get_branch(config.git))
-  table.insert(components, a(1))
-end
+  if config.git.enabled then
+    table.insert(components, '%#GruvboxBg0#')
+    table.insert(components, a(2))
+    table.insert(components, '%#StatusLine_GitStatus#')
+    table.insert(components, a(1))
+    table.insert(components, git.get_branch(config.git))
+    table.insert(components, a(1))
+  end
 
 
   table.insert(components, '%#GruvboxBg0#')
@@ -130,4 +131,3 @@ end
 git.init_git_branch()
 
 return M
-
