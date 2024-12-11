@@ -8,14 +8,13 @@ function create_float()
   local height = api.nvim_get_option("lines")
 
   local win_height = 1
-  local win_width = width - 4
-  local row = 34
-  local col = 1000
+  local win_width = 40
+  local row = math.floor((height - win_height) / 2)
+  local col = math.floor((width - win_width) / 2) -- Dynamically center the column
 
   local opts = {
     style = "minimal",
-    relative = "editor",
-    width = 60,
+    relative = "editor", width = 40,
     height = 1,
     row = row,
     col = col,
